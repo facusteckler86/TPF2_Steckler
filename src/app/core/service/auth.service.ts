@@ -1,0 +1,49 @@
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  private USER_TEST: User = {
+    email: "mail@mail.com",
+    password: "Qwerty123",
+    role: "ADMIN",
+  };
+
+  private VALID_TOKEN = "QWERTY123456";
+
+  private _authUser$ = new BehaviorSubject <User | null>(null);
+  authUser$ = this._authUser$.asObservable();
+
+  constructor(private router: Router) {
+
+    login(){
+      this._authUser$.next(this.USER_TEST);
+      localStorage.setItem("token", this.VALID_TOKEN);
+      this.router.navigate(["dashboard", "courses"]);
+    }
+
+    logout(){
+      localStorage.removeItem("token");
+      this._authUser$.next(null);
+      this.router.navigate(["auth","login"]);
+    }
+
+    verifyToken(): Observable<boolean> {
+      const token = localStorage.getItem("token");
+      const isValid = this.VALID_TOKEN === token;
+      if(isValid){
+        this._authUser$.next(this.USER_TEST);
+      }
+      return of(isValid);
+    }
+
+    verificarToken(){}
+
+    obtenerUsuarioAutenticado(){}
+
+  }
+}
