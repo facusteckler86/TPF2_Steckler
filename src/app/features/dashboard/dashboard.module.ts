@@ -5,8 +5,11 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import {MatButtonModule, MatIconButton} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { SharedModule } from '../../shared/shared.module';
+import { MatIcon } from '@angular/material/icon';
 
 
 @NgModule({
@@ -19,10 +22,14 @@ import {MatListModule} from '@angular/material/list';
     MatSidenavModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatToolbarModule,
+    SharedModule,
+    MatIconButton,
+    MatIcon
 
   ]
 })
 export class DashboardModule {
-  showFiller = false;
+
 }

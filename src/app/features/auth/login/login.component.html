@@ -1,1 +1,47 @@
-<p>login works!</p>
+<!-- Dialogo de entrada a la plataforma con el mail y la contraseña -->
+
+<div style="display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: blanchedalmond;">
+
+  <mat-card style="max-width: 450px;">
+    <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
+    <mat-card-content>
+      <form action="">
+
+        <!-- USUARIO -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+            <input matInput />
+            <mat-hint>Debe ingresar un mail valido</mat-hint>
+            <mat-icon mat-sufix>mail</mat-icon>
+
+
+        </mat-form-field>
+          <!-- CONTRASEÑA -->
+
+          <mat-form-field appearance="outline">
+             <mat-label>Password</mat-label>
+              <input matInput />
+              <mat-hint>Debe ingresar su contraseña</mat-hint>
+              <mat-icon mat-sufix>lock</mat-icon>
+        </mat-form-field>
+
+          <!-- SELECTOR DE USUARIO -->
+
+          <mat-form-field>
+              <mat-label>Rol</mat-label>
+                <mat-select>
+                  <mat-option value="Admin">Admin</mat-option>
+                  <mat-option value="User">User</mat-option>
+                </mat-select>
+          </mat-form-field>
+          <button [routerLink]="['/dashboard']" routerLinkActive="router-link-active"
+          mat-flat-button>Iniciar Sesion</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

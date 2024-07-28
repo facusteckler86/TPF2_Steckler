@@ -3,9 +3,8 @@
   <!-- INICIO DEL SIDEBAR -->
 
 
-<H1>Hola</H1>
 
-  <!-- <mat-drawer #drawer class="example-sidenav" mode="side">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
     <mat-nav-list>
 
       <a mat-list-item
@@ -27,21 +26,36 @@
 
     </mat-nav-list>
 
-    @if (showFiller) {
-      <p>Lorem, ipsum dolor sit amet consectetur.</p>
-    }
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
-
-
 
 </mat-drawer>
 
-  <div class="example-sidenav-content">
+  <!-- <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
       Toggle sidenav
     </button>
   </div> -->
+
+  <!-- INICIO DE LA TOOLBAR -->
+
+  <mat-toolbar>
+
+    <button
+    mat-icon-button
+    (click)="drawer.toggle()"
+    class="example-icon">
+      <mat-icon>apps</mat-icon>
+    </button>
+
+    <span>Alumnos</span>
+    <span class="example-spacer"></span>
+
+  </mat-toolbar>
+
+
+  <!-- llamado al router -->
+
+  <router-outlet></router-outlet>
+
+  <!-- fin de la toolbar -->
 
 </mat-drawer-container>

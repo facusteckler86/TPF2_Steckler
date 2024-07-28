@@ -7,18 +7,18 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {
     path: "courses",
-    component: CoursesComponent
-    //loadChildren: () => import ("./courses/courses.module").then((refArhivo) => refArhivo.CoursesModule)
+    //component: CoursesComponent
+    loadChildren: () => import ("./courses/courses.module").then((refArhivo) => refArhivo.CoursesModule)
   },
   {
     path: "home",
-    component: HomeComponent
-    //loadChildren: () => import ("./home/home.module").then((refArhivo) => refArhivo.HomeModule)
+    //component: HomeComponent
+    loadChildren: () => import ("./home/home.module").then((refArhivo) => refArhivo.HomeModule)
   },
   {
     path: "student",
-    component: StudentsComponent
-    // loadChildren: () => import ("./student/student.module").then((refArhivo) => refArhivo.StudentModule)
+    //component: StudentsComponent
+    loadChildren: () => import ("./students/students.module").then((refArhivo)=> refArhivo.StudentsModule)
 
   }
 

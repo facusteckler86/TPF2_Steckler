@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { RegistrerRoutingModule } from './registrer-routing.module';
 import { RegistrerComponent } from './registrer.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+
 
 
 @NgModule({
@@ -11,7 +16,12 @@ import { RegistrerComponent } from './registrer.component';
   ],
   imports: [
     CommonModule,
-    RegistrerRoutingModule
+    RegistrerRoutingModule,
+    MatTableModule,
+    MatInputModule,
+    MatListModule,
+    MatButtonModule
+
   ]
 })
 export class RegistrerModule { }
