@@ -8,21 +8,18 @@
     <mat-nav-list>
 
       <a mat-list-item
-      routerLink="home"
-      #homeLink="routerLinkActive"
-      [activated]="homeLink.isActivate">Inicio</a>
+      routerLink="./home"
+      routerLinkActive="activated">Inicio</a>
 
       <a mat-list-item
-      routerLink="courses"
-      #coursesLink="routerLinkActive"
-      [activated]="coursesLink.isActivate">Cursos</a>
+      routerLink="./courses"
+      routerLinkActive="activated">Cursos</a>
 
       <a mat-list-item
-      routerLink="alumnos"
-      #studentsLink="routerLinkActive"
-      [activated]="studentsLink.isActivate">Estudiantes</a>
+      routerLink="./students"
+      routerLinkActive="activated">Estudiantes</a>
 
-      <a (click)="logout()" mat-list-item>Salir</a>
+      <a mat-list-item>Salir</a>
 
     </mat-nav-list>
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registrer',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './registrer.component.css'
 })
 export class RegistrerComponent {
+
+
 
 }

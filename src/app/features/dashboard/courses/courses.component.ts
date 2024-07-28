@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesDialogComponent } from './course-component-dialog/course-dialog.component';
 import { Course } from './models';
+import { generateId } from '../../../shared/utils';
 
 @Component({
   selector: 'app-courses',
