@@ -5,6 +5,7 @@ import { StudentsComponent } from './students/students.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+
   {
     path: "courses",
     //component: CoursesComponent
