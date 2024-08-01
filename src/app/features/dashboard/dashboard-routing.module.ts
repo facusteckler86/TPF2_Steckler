@@ -8,17 +8,17 @@ const routes: Routes = [
 
   {
     path: "courses",
-    //component: CoursesComponent
+    component: CoursesComponent,
     loadChildren: () => import ("./courses/courses.module").then((refArhivo) => refArhivo.CoursesModule)
   },
   {
     path: "home",
-    //component: HomeComponent
+    component: HomeComponent,
     loadChildren: () => import ("./home/home.module").then((refArhivo) => refArhivo.HomeModule)
   },
   {
     path: "student",
-    //component: StudentsComponent
+    component: StudentsComponent,
     loadChildren: () => import ("./students/students.module").then((refArhivo)=> refArhivo.StudentsModule)
 
   }

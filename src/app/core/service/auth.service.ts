@@ -25,13 +25,13 @@ login(){
 
   this._authUser$.next(this.USER_TEST);
   localStorage.setItem("token", this.VALID_TOKEN);
-  this.router.navigate(["courses","dashboard"]);
+  this.router.navigate(["courses","dashboard","home","student"]);
 }
 
 logout(){
   localStorage.removeItem("token");
   this._authUser$.next(null);
-  this.router.navigate(["auth","login"]);
+  this.router.navigate(["auth","login","home"]);
 }
 
 verifyToken(): Observable<Boolean>{
