@@ -1,37 +1,53 @@
-<!-- form para el alta de alumnos -->
+<!-- Dialogo de entrada a la plataforma con el mail y la contraseña -->
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div style="display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+background-color: blanchedalmond;">
+
+  <mat-card style="max-width: 450px;">
+    <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
+    <mat-card-content>
+      <form action="">
+
+        <!-- USUARIO -->
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+            <input matInput />
+            <mat-hint>Debe ingresar un mail valido</mat-hint>
+            <mat-icon mat-sufix>mail</mat-icon>
 
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-  </ng-container>
+        </mat-form-field>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="nombre">
-    <th mat-header-cell *matHeaderCellDef>Nombre</th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-  </ng-container>
+        <!-- CONTRASEÑA -->
 
-  <!-- apellido Column -->
-  <ng-container matColumnDef="apellido">
-    <th mat-header-cell *matHeaderCellDef>Apellido</th>
-    <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
-  </ng-container>
+          <mat-form-field appearance="outline">
+             <mat-label>Password</mat-label>
+              <input matInput />
+              <mat-hint>Debe ingresar su contraseña</mat-hint>
+              <mat-icon mat-sufix>lock</mat-icon>
+        </mat-form-field>
 
-  <!-- curso Column -->
-  <ng-container matColumnDef="course">
-    <th mat-header-cell *matHeaderCellDef>Curso</th>
-    <td mat-cell *matCellDef="let element"> {{element.course}} </td>
-  </ng-container>
+          <!-- SELECTOR DE USUARIO -->
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+           <mat-form-field>
+              <mat-label>Rol</mat-label>
+                <mat-select>
+                  <mat-option value="Admin">Admin</mat-option>
+                  <mat-option value="User">User</mat-option>
+                </mat-select>
+          </mat-form-field>
+          <button [routerLink]="['/dashboard']" routerLinkActive="router-link-active"
+          mat-flat-button>Iniciar Sesion</button>
+      </form>
+      <router-outlet></router-outlet>
+    </mat-card-content>
+  </mat-card>
+</div>
 
-  <router-outlet></router-outlet>
-</table>
 
 
 

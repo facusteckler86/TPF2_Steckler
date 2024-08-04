@@ -7,6 +7,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { DashboardModule } from './features/dashboard/dashboard.module';
+import { AuthModule } from './features/auth/auth.module';
 //import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -22,7 +25,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 
   ],
   providers: [
-    provideAnimationsAsync(),provideHttpClient(withFetch())
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch()),
+    provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })

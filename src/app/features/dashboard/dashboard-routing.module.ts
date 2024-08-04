@@ -20,8 +20,11 @@ const routes: Routes = [
     path: "students",
     component: StudentsComponent,
     loadChildren: () => import ("./students/students.module").then((refArhivo)=> refArhivo.StudentsModule)
-
-  }
+   },
+   {
+    path: '**', // Cualquier ruta que no coincida con las anteriores (basicamente es un default)
+    redirectTo: '/dashboard/home',
+  },
 
 ];
 

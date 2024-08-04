@@ -8,6 +8,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { CoreModule } from '../../../core/core.module';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -22,7 +25,11 @@ import { CoreModule } from '../../../core/core.module';
     MatInputModule,
     MatListModule,
     MatButtonModule,
-    CoreModule
+    CoreModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatSelectModule
 
   ]
 })

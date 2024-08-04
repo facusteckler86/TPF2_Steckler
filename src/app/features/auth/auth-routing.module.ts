@@ -7,13 +7,19 @@ const routes: Routes = [
 {
   path: "login",
   component: LoginComponent,
-  loadChildren: () => import("./login/login.module").then((refArchivo)=> refArchivo.LoginModule)
+  loadChildren: () => import("./login/login.module")
+  .then((refArchivo)=> refArchivo.LoginModule)
 },
 {
   path: "registrer",
   component: RegistrerComponent,
-  loadChildren: () => import("./registrer/registrer.module").then((refArchivo) => refArchivo.RegistrerModule)
-}
+  loadChildren: () => import("./registrer/registrer.module")
+  .then((refArchivo) => refArchivo.RegistrerModule)
+},
+{
+  path: '**',
+  redirectTo: 'auth',
+},
 
 ];
 
