@@ -16,3 +16,9 @@ export interface User {
   password: string;
   role: UserRole;
 }
+
+export interface Students {
+  name: string;
+  apellido: string;
+  course: string;
+}

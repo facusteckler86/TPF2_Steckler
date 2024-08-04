@@ -17,7 +17,7 @@ const routes: Routes = [
     loadChildren: () => import ("./home/home.module").then((refArhivo) => refArhivo.HomeModule)
   },
   {
-    path: "student",
+    path: "students",
     component: StudentsComponent,
     loadChildren: () => import ("./students/students.module").then((refArhivo)=> refArhivo.StudentsModule)
 

@@ -6,25 +6,30 @@ import { Course } from '../../courses/models';
 @Component({
   selector: 'app-courses-dialog',
   templateUrl: './course-dialog.component.html',
-  styleUrl: './course-dialog.component.css'
+  styleUrl: './course-dialog.component.css',
 })
 export class CoursesDialogComponent {
+  courseForm: FormGroup;
 
-courseForm: FormGroup;
-
-constructor(private fb: FormBuilder,
-            private matDialogRef : MatDialogRef<CoursesDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public editingCourse?: Course) {
-
+  constructor(
+    private fb: FormBuilder,
+    private matDialogRef: MatDialogRef<CoursesDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public editingCourse?: Course
+  ) {
     this.courseForm = this.fb.group({
       name: [null, Validators.required],
       starDate: [],
       endDate: [],
-    })
-  }
-    onSubmit(): void {
-      console.log(this.courseForm.value);
-
-      this.matDialogRef.close(this.courseForm.value);
+    });
+    if(this.editingCourse){
+      this.courseForm.patchValue(this.editingCourse)
     }
+  }
+  onSubmit(): void {
+    if (this.courseForm.valid) {
+      this.matDialogRef.close(this.courseForm.value);
+    } else {
+
+    }
+  }
 }

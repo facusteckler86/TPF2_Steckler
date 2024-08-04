@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { StudentsRoutingModule } from './students-routing.module';
 import { StudentsComponent } from './students.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -11,7 +15,11 @@ import { StudentsComponent } from './students.component';
   ],
   imports: [
     CommonModule,
-    StudentsRoutingModule
+    StudentsRoutingModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatTableModule
   ]
 })
 export class StudentsModule { }
