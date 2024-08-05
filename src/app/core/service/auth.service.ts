@@ -12,6 +12,10 @@ export class AuthService {
     email: "mail@mail.com",
     password: "Qwerty123",
     role: "ADMIN",
+    id: '',
+    firstName: '',
+    lastName: '',
+    token: ''
   };
 
   private VALID_TOKEN = "QWERTY123456";
