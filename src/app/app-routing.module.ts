@@ -6,29 +6,30 @@ import { LoginComponent } from './features/auth/login/login.component';
 
 const routes: Routes = [
   {
-    path: "auth",
+    path: 'auth',
     component: AuthComponent,
-    loadChildren: () => import("./features/auth/auth.module")
-    .then((refArhivo)=> refArhivo.AuthModule)
+    loadChildren: () =>
+      import('./features/auth/auth.module').then(
+        (refArhivo) => refArhivo.AuthModule
+      ),
   },
 
   {
-    path: "dashboard",
+    path: 'dashboard',
     component: DashboardComponent,
-    loadChildren: () => import("./features/dashboard/dashboard.module")
-    .then((refArchivo)=> refArchivo.DashboardModule)
-
+    loadChildren: () =>
+      import('./features/dashboard/dashboard.module').then(
+        (refArchivo) => refArchivo.DashboardModule
+      ),
   },
   {
-    path: "***",
-    redirectTo: "/login",
+    path: '**',
+    redirectTo: '/auth/login',
   },
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
