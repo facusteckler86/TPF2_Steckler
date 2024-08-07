@@ -6,10 +6,9 @@ import { AuthService } from '../../core/service/auth.service';
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.css'
+  styleUrl: './auth.component.css',
 })
 export class AuthComponent {
-
   loginForm: FormGroup;
 
   constructor(public authService: AuthService, private fb: FormBuilder) {
@@ -31,4 +30,5 @@ export class AuthComponent {
     }
     }
 
-}
+  }
+
