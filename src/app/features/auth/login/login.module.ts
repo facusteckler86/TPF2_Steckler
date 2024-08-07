@@ -11,7 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AuthService } from '../../../core/service/auth.service';
-import { APP_CONFIG } from '../../../core/injection-token';
+//import { APP_CONFIG } from '../../../core/injection-token';
 
 
 @NgModule({
@@ -32,15 +32,6 @@ import { APP_CONFIG } from '../../../core/injection-token';
 
   ],
 
-  providers: [
-    AuthService,
-    {
-      provide: APP_CONFIG,
-      useValue:{
-        baseURL: "...",
-        version: "2.0",
-      }
-    }
-  ]
+  providers: []
 })
 export class LoginModule { }

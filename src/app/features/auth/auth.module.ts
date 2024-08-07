@@ -11,7 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
-import { APP_CONFIG } from '../../core/injection-token';
+//import { APP_CONFIG } from '../../core/injection-token';
 import { AuthService } from '../../core/service/auth.service';
 
 
@@ -34,14 +34,6 @@ import { AuthService } from '../../core/service/auth.service';
 
   ],
 
-  providers: [
-    {
-      provide: APP_CONFIG,
-      useValue:{
-        baseURL: "...",
-        Version: "2.0",
-      }
-    }
-  ]
+
 })
 export class AuthModule { }

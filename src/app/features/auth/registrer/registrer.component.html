@@ -4,7 +4,7 @@
 justify-content: center;
 align-items: center;
 height: 100vh;
-background-color: blanchedalmond;">
+background-color: primary;">
 
   <mat-card style="max-width: 450px;">
     <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
@@ -43,6 +43,7 @@ background-color: blanchedalmond;">
           <button [routerLink]="['/dashboard']" routerLinkActive="router-link-active"
           mat-flat-button>Iniciar Sesion</button>
       </form>
+
       <router-outlet></router-outlet>
     </mat-card-content>
   </mat-card>

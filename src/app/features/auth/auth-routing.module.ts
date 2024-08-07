@@ -6,19 +6,17 @@ import { RegistrerComponent } from './registrer/registrer.component';
 const routes: Routes = [
 {
   path: "login",
-  component: LoginComponent,
   loadChildren: () => import("./login/login.module")
   .then((refArchivo)=> refArchivo.LoginModule)
 },
 {
   path: "registrer",
-  component: RegistrerComponent,
   loadChildren: () => import("./registrer/registrer.module")
   .then((refArchivo) => refArchivo.RegistrerModule)
 },
 {
   path: '**',
-  redirectTo: 'auth',
+  redirectTo: 'login',
 },
 
 ];
