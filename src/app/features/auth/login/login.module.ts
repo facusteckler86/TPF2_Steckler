@@ -11,7 +11,9 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReactiveFormsModule, Validators } from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AuthService } from '../../../core/service/auth.service';
-//import { APP_CONFIG } from '../../../core/injection-token';
+import { CoreModule } from '../../../core/core.module';
+import { SharedModule } from '../../../shared/shared.module';
+
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AuthService } from '../../../core/service/auth.service';
     MatIconModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    CoreModule,
+    SharedModule
 
 
   ],

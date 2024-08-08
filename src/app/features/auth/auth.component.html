@@ -1,12 +1,13 @@
 <!-- Dialogo de entrada a la plataforma con el mail y la contraseña -->
 
-<div style="display: flex;
+<div style="
+display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
-background-color: blanchedalmond;">
+background-color: azure;">
 
-  <mat-card style="max-width: 450px;">
+  <mat-card style="max-width: 400px;">
     <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
     <mat-card-content>
       <form action="">
@@ -39,9 +40,8 @@ background-color: blanchedalmond;">
                   <mat-option value="User">User</mat-option>
                 </mat-select>
           </mat-form-field>
-          <button
-           routerLink="../dashboard/dashboard.component.html"
-           routerLinkActive="activated"
+          <button type="submit"
+          class="w-full mt-5"
           mat-flat-button>Iniciar Sesion</button>
       </form>
       <router-outlet />

@@ -11,7 +11,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SharedModule } from '../../shared/shared.module';
 import { MatIcon } from '@angular/material/icon';
 import { CoreModule } from '../../core/core.module';
-//import { APP_CONFIG } from '../../core/injection-token';
+
 
 
 @NgModule({

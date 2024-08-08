@@ -11,6 +11,7 @@ import { CoreModule } from '../../../core/core.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { SharedModule } from '../../../shared/shared.module';
 
 
 
@@ -29,7 +30,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    CoreModule,
+    SharedModule
 
   ]
 })

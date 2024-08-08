@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NombreCompletoPipe implements PipeTransform {
 
   transform(nombre: string, apellido:string): string {
-    return `${nombre} ${apellido}`;
+    return `${nombre} ${apellido}`.toUpperCase();
   }
 
 }

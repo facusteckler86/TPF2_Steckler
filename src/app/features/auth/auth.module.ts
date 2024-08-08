@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 //import { APP_CONFIG } from '../../core/injection-token';
 import { AuthService } from '../../core/service/auth.service';
+import { SharedModule } from '../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { AuthService } from '../../core/service/auth.service';
     MatDialogModule,
     MatButtonModule,
     MatSelectModule,
+    SharedModule,
+    CoreModule
 
   ],
 
