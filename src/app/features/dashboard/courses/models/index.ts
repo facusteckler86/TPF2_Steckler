@@ -22,7 +22,15 @@ export interface User {
 }
 
 export interface Students {
+  id: Number;
   name: string;
   apellido: string;
   course: string;
 }
+
+export interface StudentsList {
+  id: number;
+  name: string;
+  apellido: string;
+  course: string;
+};

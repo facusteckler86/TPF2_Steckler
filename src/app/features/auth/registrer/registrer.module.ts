@@ -12,12 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { SharedModule } from '../../../shared/shared.module';
+import { RegistrerDialogComponent } from './registrer-component-dialog/registrer-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
   declarations: [
-    RegistrerComponent
+    RegistrerComponent,
+    RegistrerDialogComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import { SharedModule } from '../../../shared/shared.module';
     MatCardModule,
     MatSelectModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
 
   ]
 })

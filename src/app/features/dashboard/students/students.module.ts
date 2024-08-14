@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { SharedModule } from '../../../shared/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SharedModule } from '../../../shared/shared.module';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ]
 })
 export class StudentsModule { }

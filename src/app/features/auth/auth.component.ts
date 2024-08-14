@@ -11,6 +11,13 @@ import { AuthService } from '../../core/service/auth.service';
 export class AuthComponent {
   loginForm: FormGroup;
 
+  /**
+   *
+   * @param authService Servicio de el componente auth para los validadores de usuario
+   *
+   * @param fb Es una forma abreviada de llamar al FormBuilder
+   */
+
   constructor(public authService: AuthService, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ['test@mail.com', [Validators.required, Validators.email]],

@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { RegistrerDialogComponent } from '../../auth/registrer/registrer-component-dialog/registrer-dialog.component';
+import { generateId } from '../../../shared/utils';
 
 export interface StudentsList {
   position: number;
@@ -23,21 +25,5 @@ const ELEMENT_DATA: StudentsList[] = [
 })
 export class StudentsComponent {
 
-  displayedColumns: string[] = ['position', 'name', 'apellido', 'course'];
-  dataSource = [...ELEMENT_DATA];
-
-  @ViewChild(MatTable)
-  table!: MatTable<StudentsList>;
-
-  addData() {
-    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-    this.table.renderRows();
-  }
-
-  removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
-  }
 
 }

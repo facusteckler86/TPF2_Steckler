@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>
+  {{ editingEnrollments ? "Editando " + editingEnrollments.editingEnrollments : "Inscribite" }}
+</h2>
+
+<h3 mat-dialog-title>Inscripciones</h3>
+
+
+<mat-dialog-content>
+  <form formGroup="EnrollmentsForm">
+    <mat-form-field class="w-full">
+
+      <mat-label>Inscribite</mat-label>
+      <input formControlName="" matInput />
+      <mat-error>El campo es requerido</mat-error>
+
+    </mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+<!-- Botones de cierre del dialogo -->
+
+<mat-dialog-actions>
+  <button mat-dialog-close mat-flat-button>Cancelar</button>
+  <button (click)="onSubmit()" mat-flat-button>Guardar</button>
+</mat-dialog-actions>
