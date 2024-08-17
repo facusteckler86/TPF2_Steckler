@@ -2,15 +2,18 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../../features/dashboard/courses/models';
+import { environment } from '../../../environments/environment.development';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
   private USER_TEST: User = {
-    email: "mail@mail.com",
-    password: "Qwerty123",
+    email: '',
+    password: '',
     role: "ADMIN",
     id: '',
     firstName: '',
@@ -23,13 +26,40 @@ export class AuthService {
   private _authUser$ = new BehaviorSubject<User | null>(null);
   authUser$ = this._authUser$.asObservable();
 
-  constructor(private router: Router){}
+  constructor(private router: Router,
+              private http : HttpClient,
 
-login(){
 
-  this._authUser$.next(this.USER_TEST);
-  localStorage.setItem("token", this.VALID_TOKEN);
-  this.router.navigate(["courses","dashboard","home","student"]);
+  ){}
+
+login(data: {email: string; password: string}){
+
+  this.http
+  .get<User[]>(environment.apiURL + '/user',{
+    params: {
+      email: data.email,
+      password: data.password,
+    },
+  })
+  .subscribe({
+    next:(Response)=>{
+      if(!Response.length){
+        alert('Usuario Invalido');
+      }else{
+        const authUser = Response[0];
+        localStorage.setItem('token', authUser.token);
+        //this.store.dispatch(setAuthUser({payload: authUser}));
+        //this.router.navigate(['dashboard','home']);
+      }
+
+      //Error: (err)=>{
+        //this.notifier.sendNotification('Error al iniciar sesion')
+      //}
+
+
+    }
+  })
+
 }
 
 logout(){
@@ -46,10 +76,5 @@ verifyToken(): Observable<Boolean>{
   }
   return of(isValid);
 }
-verificarToken(){}
-
-obtenerUsuarioAutenticado(){}
-
-
 
 }

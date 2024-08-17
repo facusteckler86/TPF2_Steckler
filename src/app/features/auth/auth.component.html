@@ -5,18 +5,20 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 100vh;
-background-color: azure;">
+background-color: white;">
 
   <mat-card style="max-width: 400px;">
     <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
     <mat-card-content>
-      <form action="">
+      <form
+      (ngSubmit)="onSubmit()"
+      [formGroup]="loginForm">
 
         <!-- USUARIO -->
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-            <input matInput />
+            <input formControlName="Email" matInput />
             <mat-hint>Debe ingresar un mail valido</mat-hint>
             <mat-icon mat-sufix>mail</mat-icon>
 
@@ -26,7 +28,7 @@ background-color: azure;">
 
           <mat-form-field appearance="outline">
              <mat-label>Password</mat-label>
-              <input matInput />
+              <input formControlName="Password" matInput />
               <mat-hint>Debe ingresar su contraseña</mat-hint>
               <mat-icon mat-sufix>lock</mat-icon>
         </mat-form-field>
@@ -40,6 +42,9 @@ background-color: azure;">
                   <mat-option value="User">User</mat-option>
                 </mat-select>
           </mat-form-field>
+
+          <!-- boton para inicio de sesion -->
+
           <button type="submit"
           class="w-full mt-5"
           mat-flat-button>Iniciar Sesion</button>

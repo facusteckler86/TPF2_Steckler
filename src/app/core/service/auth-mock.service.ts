@@ -8,7 +8,4 @@ export class AuthMockService {
     };
   }
 
-  verificarToken() {}
-
-  obtenerUsuarioAutenticado() {}
 }

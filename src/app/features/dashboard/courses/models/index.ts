@@ -20,6 +20,12 @@ export interface User {
   lastName: string;
   token: string;
 }
+export interface ADMIN {
+  email: string,
+  password: string,
+  id: string,
+  token: string,
+}
 
 export interface Students {
   id: Number;

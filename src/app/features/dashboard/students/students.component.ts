@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
-import { RegistrerDialogComponent } from '../../auth/registrer/registrer-component-dialog/registrer-dialog.component';
-import { generateId } from '../../../shared/utils';
+
 
 export interface StudentsList {
   position: number;
