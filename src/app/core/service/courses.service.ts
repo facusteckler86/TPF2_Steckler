@@ -2,38 +2,41 @@ import { Injectable } from '@angular/core';
 import { Course } from '../../features/dashboard/courses/models';
 import { map, Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
+
   private MY_DATABASE = [
     {
       id: '01',
       name: 'Angular',
-      starDate: new Date(),
-      endData: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
     },
     {
       id: '02',
       name: 'JavaScript',
-      starDate: new Date(),
-      endData: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
     },
     {
       id: '03',
       name: 'Java',
-      starDate: new Date(),
-      endData: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
     },
     {
       id: '04',
       name: 'Python',
-      starDate: new Date(),
-      endData: new Date(),
+      startDate: new Date(),
+      endDate: new Date(),
     },
   ];
 
-  editCourseById(id: string, update: Course) {
+
+  editCourseById(id: string,update: Course) {
     this.MY_DATABASE = this.MY_DATABASE.map((el) =>
       el.id === id ? { ...update, id } : el
     );
@@ -55,7 +58,7 @@ export class CoursesService {
       setTimeout(() => {
         observer.next(this.MY_DATABASE);
         observer.complete();
-      }, 750);
+      }, 1500);
     });
   }
 
@@ -66,7 +69,7 @@ export class CoursesService {
   }
 
   addCourse(course: Course): Observable<Course[]> {
-    this.MY_DATABASE.push(Course);
+    this.MY_DATABASE.push(course);
     return this.getCourses();
   }
 

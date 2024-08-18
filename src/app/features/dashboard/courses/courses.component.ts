@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CoursesDialogComponent } from './course-component-dialog/course-dialog.component';
 import { Course } from './models';
@@ -10,7 +10,7 @@ import { CoursesService } from '../../../core/service/courses.service';
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css',
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnInit {
   nombreCurso: '{{nombreCurso}}' | undefined;
 
   displayedColumns: string[] = ['id', 'name', 'starDate', 'endDate', 'actions'];
@@ -43,11 +43,32 @@ export class CoursesComponent {
   ];
   element: any;
 
+
+
+  constructor(
+    private matDialog: MatDialog,
+    private coursesService: CoursesService
+  ) {}
+
+  // onInit para el inicio de los cursos, se demora un poco en verse la lista
+  ngOnInit(): void {
+    this.loadCourses();
+  }
+
   isLoading = false;
 
-  constructor(private matDialog: MatDialog,
-              private coursesService: CoursesService) {}
-
+  loadCourses() {
+    this.isLoading = true;
+    this.coursesService.getCourses().subscribe({
+      next: (Courses) => {
+        this.courseList = Courses;
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
+    });
+  }
+  //cuando se elige uno de los cursos que estan disponibles
   openDialog(): void {
     this.matDialog
       .open(CoursesDialogComponent)
@@ -58,8 +79,15 @@ export class CoursesComponent {
           this.nombreCurso = value.name;
 
           value['id'] = generateId(4);
-
-          this.courseList = [...this.courseList, value];
+          this.isLoading = true;
+          this.coursesService.addCourse(value).subscribe({
+            next: (course) => {
+              this.courseList = [...course];
+            },
+            complete: ()=>{
+              this.isLoading = false;
+            }
+          });
         },
       });
   }
@@ -72,14 +100,13 @@ export class CoursesComponent {
       .subscribe({
         next: (value) => {
           if (!!value) {
-            this.coursesService.editCourseById(
-              editingCourse.id,
-              value
-            ).subscribe({
-              next: (Course) => {
-                this.courseList = [...Course];
-              },
-            });
+            this.coursesService
+              .editCourseById(editingCourse.id, value)
+              .subscribe({
+                next: (Course) => {
+                  this.courseList = [...Course];
+                },
+              });
           }
         },
       });

@@ -13,6 +13,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CoreModule } from '../../../core/core.module';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CoreModule } from '../../../core/core.module';
     MatDialogModule,
     MatIcon,
     MatButtonModule,
-    CoreModule
+    CoreModule,
+    MatProgressBarModule
 
 
   ]
