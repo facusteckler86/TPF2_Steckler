@@ -22,7 +22,7 @@
     <!-- Columna de nombre -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Nombre del Curso </th>
-      <td mat-cell *matCellDef="let element"> {{element.name }} </td>
+      <td mat-cell *matCellDef="let element"> {{element.name | async }} </td>
       </ng-container>
 
     <!-- Columna del inicio del curso -->

@@ -10,25 +10,29 @@ const routes: Routes = [
   {
     path: "courses",
     component: CoursesComponent,
-    loadChildren: () => import ("./courses/courses.module").then((refArhivo) => refArhivo.CoursesModule)
+    loadChildren: () => import ("./courses/courses.module")
+    .then((refArhivo) => refArhivo.CoursesModule)
   },
   {
     path: "home",
     component: HomeComponent,
-    loadChildren: () => import ("./home/home.module").then((refArhivo) => refArhivo.HomeModule)
+    loadChildren: () => import ("./home/home.module")
+    .then((refArhivo) => refArhivo.HomeModule)
   },
   {
     path: "students",
     component: StudentsComponent,
-    loadChildren: () => import ("./students/students.module").then((refArhivo)=> refArhivo.StudentsModule)
+    loadChildren: () => import ("./students/students.module")
+    .then((refArhivo)=> refArhivo.StudentsModule)
    },
    {
       path: "enrollments",
       component: EnrollmentsComponent,
-      loadChildren: ()=> import("./enrollments/enrollments.module").then((refArchivo)=>refArchivo.EnrollmentsModule)
+      loadChildren: ()=> import("./enrollments/enrollments.module")
+      .then((refArchivo)=>refArchivo.EnrollmentsModule)
    },
    {
-    path: '**', // Cualquier ruta que no coincida con las anteriores (basicamente es un default)
+    path: '**',
     redirectTo: '/dashboard/home',
   },
 

@@ -15,7 +15,6 @@ import { CoreModule } from '../../../core/core.module';
 import { SharedModule } from '../../../shared/shared.module';
 
 
-
 @NgModule({
   declarations: [
     LoginComponent
@@ -32,9 +31,7 @@ import { SharedModule } from '../../../shared/shared.module';
     MatDialogModule,
     CoreModule,
     SharedModule
-
-
-  ],
+    ],
 
   providers: []
 })

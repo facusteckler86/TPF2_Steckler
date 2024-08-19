@@ -14,7 +14,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../core/core.module';
 
-
 @NgModule({
   declarations: [
     AuthComponent
@@ -33,9 +32,7 @@ import { CoreModule } from '../../core/core.module';
     MatSelectModule,
     SharedModule,
     CoreModule
-
   ],
-
 
 })
 export class AuthModule { }

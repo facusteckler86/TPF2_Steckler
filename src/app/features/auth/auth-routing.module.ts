@@ -14,19 +14,6 @@ const routes: Routes = [
   path: '**',
   redirectTo: 'login',
 },
-
-  // {
-  //   path: 'login',
-  //   loadChildren: () =>
-  //     import('./login/login.module').then(
-  //       (refArchivo) => refArchivo.LoginModule
-  //     ),
-  // },
-
-  // {
-  //   path: '**',
-  //   redirectTo: 'login',
-  // },
 ];
 
 @NgModule({

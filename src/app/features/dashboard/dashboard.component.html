@@ -2,8 +2,6 @@
 
   <!-- INICIO DEL SIDEBAR -->
 
-
-
   <mat-drawer opened="true" #drawer class="example-sidenav" mode="side">
 
     <mat-nav-list>
@@ -28,14 +26,14 @@
       routerLink="courses"
       routerLinkActive="activated">Alta de Cursos</a>
 
+      <a mat-list-item
+      routerLink="../auth/login"
+      routerLinkActive="activated">Cerrar Sesion</a>
+
       </mat-nav-list>
 
 
-
-
-
     </mat-drawer>
-
 
 
   <!-- INICIO DE LA TOOLBAR -->
@@ -51,8 +49,6 @@
 
     <span>Alumnos</span>
     <span class="example-spacer"></span>
-
-
 
 
   </mat-toolbar>
