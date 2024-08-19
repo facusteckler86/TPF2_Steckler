@@ -4,6 +4,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { StudentsComponent } from './students/students.component';
 import { HomeComponent } from './home/home.component';
 import { EnrollmentsComponent } from './enrollments/enrollments.component';
+import { CourseDetailComponent } from './courses/pages/course-detail/course-detail.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,7 @@ const routes: Routes = [
       loadChildren: ()=> import("./enrollments/enrollments.module")
       .then((refArchivo)=>refArchivo.EnrollmentsModule)
    },
+
    {
     path: '**',
     redirectTo: '/dashboard/home',

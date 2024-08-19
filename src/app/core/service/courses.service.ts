@@ -62,6 +62,8 @@ export class CoursesService {
     });
   }
 
+  //Aca se conecta para ver el detalle de los id de cursos.
+
   getCourseById(id: string): Observable<Course | undefined> {
     return this.getCourses().pipe(
       map((todosLosCursos) => todosLosCursos.find((el) => el.id === id))

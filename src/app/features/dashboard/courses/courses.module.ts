@@ -14,12 +14,14 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CoreModule } from '../../../core/core.module';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 
 
 @NgModule({
   declarations: [
     CoursesComponent,
-    CoursesDialogComponent
+    CoursesDialogComponent,
+    CourseDetailComponent
   ],
   imports: [
     CommonModule,

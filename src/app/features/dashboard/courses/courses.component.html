@@ -11,7 +11,8 @@
 
   <div class="flex align-content-end flex-wrap">
 
-    <table  mat-table [dataSource]="courseList" class="mat-elevation-z8">
+    <table  mat-table [dataSource]="courseList"
+    class="mat-elevation-z8">
 
     <!--  Columna dePosicion -->
     <ng-container matColumnDef="id">
@@ -39,18 +40,25 @@
     </ng-container>
 
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>Alta/Baja</th>
-
-      <td mat-cell *matCellDef="let element"> {{element.actions}} </td>
 
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let element">
-        <!-- <button (click)="editCourse(element)" mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button> -->
+        <button
+        (click)="editCourse(element)"
+        mat-icon-button>
+        <mat-icon>edit</mat-icon>
+        ></button>
 
-      <button (click)="deleteCourseById(element.id)">
+
+      <button (click)="deleteCourseById(element.id)" mat-icon-button>
         <mat-icon>delete</mat-icon>
+      </button>
+      </td>
+
+      <button
+      [routerLink]= "element.id"
+      mat-icon-button>
+        <mat-icon>visibility</mat-icon>
       </button>
 
     </ng-container>
@@ -61,5 +69,5 @@
   </table>
   </div>
 
-  <router-outlet></router-outlet>
+  <router-outlet />
 

@@ -13,6 +13,7 @@ import { AuthModule } from './features/auth/auth.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { EffectsModule } from '@ngrx/effects';
   providers: [
     provideAnimationsAsync(),
     provideHttpClient(withFetch()),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    provideCharts(withDefaultRegisterables())
   ],
   bootstrap: [AppComponent]
 })
