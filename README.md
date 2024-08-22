@@ -12,10 +12,11 @@
 #Servicios
 #Rxjs
 #Test Unitarios
-#Lazy Loading
 #Api Rest
+#Aplicacion de Lazy Loading en todos los modulos
+
+#Token para Login : QWERTY123456;
 
 
-##### Repo de GitHub ("https://github.com/facusteckler86/TPF2_Steckler)
 
 ## Deploy realizado en Vercel

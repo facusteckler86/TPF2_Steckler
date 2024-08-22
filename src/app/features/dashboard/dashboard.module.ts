@@ -3,21 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule, MatIconButton} from '@angular/material/button';
-import {MatListModule} from '@angular/material/list';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../../shared/shared.module';
 import { MatIcon } from '@angular/material/icon';
 import { CoreModule } from '../../core/core.module';
 
-
-
 @NgModule({
-  declarations: [
-    DashboardComponent
-  ],
+  declarations: [DashboardComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
@@ -29,10 +25,7 @@ import { CoreModule } from '../../core/core.module';
     SharedModule,
     MatIconButton,
     MatIcon,
-    CoreModule
-
-  ]
+    CoreModule,
+  ],
 })
-export class DashboardModule {
-
-}
+export class DashboardModule {}

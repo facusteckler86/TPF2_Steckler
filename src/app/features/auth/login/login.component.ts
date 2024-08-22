@@ -6,19 +6,17 @@ import { AuthService } from '../../../core/service/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
   loginForm: FormGroup;
 
-    /**
+  /**
    *
    * @param authService Servicio de el componente auth para los validadores de usuario
    *
    * @param fb Es una forma abreviada de llamar al FormBuilder
    */
-
 
   constructor(public authService: AuthService, private fb: FormBuilder) {
     this.loginForm = this.fb.group({
@@ -38,6 +36,4 @@ export class LoginComponent {
       this.authService.login(data);
     }
   }
-
-
 }

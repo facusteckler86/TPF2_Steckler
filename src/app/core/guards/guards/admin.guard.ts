@@ -4,8 +4,10 @@ import { first, map, skip, tap } from 'rxjs';
 import { AuthService } from '../../service/auth.service';
 
 export const adminGuard: CanActivateFn = (route, state) => {
+
   const authService = inject(AuthService);
   const router = inject(Router);
+
   return AuthService.authUser$.pipe(
     map((authUser) =>
       authUser?.role !== 'ADMIN'

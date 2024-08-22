@@ -2,12 +2,10 @@ import { Injectable } from '@angular/core';
 import { Course } from '../../features/dashboard/courses/models';
 import { map, Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class CoursesService {
-
   private MY_DATABASE = [
     {
       id: '01',
@@ -35,8 +33,7 @@ export class CoursesService {
     },
   ];
 
-
-  editCourseById(id: string,update: Course) {
+  editCourseById(id: string, update: Course) {
     this.MY_DATABASE = this.MY_DATABASE.map((el) =>
       el.id === id ? { ...update, id } : el
     );

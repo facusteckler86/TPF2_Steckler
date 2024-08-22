@@ -6,6 +6,7 @@ const routes: Routes = [
   {
     path: "",
     component: LoginComponent,
+    loadChildren: ()=> import('./login.module').then((refArchivo)=> refArchivo.LoginModule),
   }
 
 ];

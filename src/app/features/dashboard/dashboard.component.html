@@ -1,58 +1,40 @@
 <mat-drawer-container class="example-container" autosize>
-
   <!-- INICIO DEL SIDEBAR -->
 
   <mat-drawer opened="true" #drawer class="example-sidenav" mode="side">
-
     <mat-nav-list>
+      <a mat-list-item routerLink="home" routerLinkActive="activated">Inicio</a>
 
-      <a mat-list-item
-      routerLink="home"
-      routerLinkActive="activated">Inicio</a>
+      <a mat-list-item routerLink="courses" routerLinkActive="activated"
+        >Cursos</a
+      >
 
-      <a mat-list-item
-      routerLink="courses"
-      routerLinkActive="activated">Cursos</a>
+      <a mat-list-item routerLink="students" routerLinkActive="activated"
+        >Estudiantes</a
+      >
 
-      <a mat-list-item
-      routerLink="students"
-      routerLinkActive="activated">Estudiantes</a>
+      <a mat-list-item routerLink="enrollments" routerLink="activated"
+        >Inscripciones</a
+      >
 
-      <a mat-list-item
-      routerLink="enrollments"
-      routerLink="activated">Inscripciones</a>
+      <a mat-list-item routerLink="courses" routerLinkActive="activated"
+        >Alta de Cursos</a
+      >
 
-      <a mat-list-item
-      routerLink="courses"
-      routerLinkActive="activated">Alta de Cursos</a>
-
-      <a mat-list-item
-      routerLink="../auth/login"
-      routerLinkActive="activated">Cerrar Sesion</a>
-
-      </mat-nav-list>
-
-
-    </mat-drawer>
-
+      <a (click)="logout()"></a>Cerrar Sesion
+    </mat-nav-list>
+  </mat-drawer>
 
   <!-- INICIO DE LA TOOLBAR -->
 
   <mat-toolbar>
-
-    <button
-    mat-icon-button
-    (click)="drawer.toggle()"
-    class="example-icon">
+    <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
       <mat-icon>apps</mat-icon>
     </button>
 
     <span>Alumnos</span>
     <span class="example-spacer"></span>
-
-
   </mat-toolbar>
-
 
   <!-- llamado al router -->
 

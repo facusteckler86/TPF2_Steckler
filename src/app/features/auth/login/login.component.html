@@ -1,55 +1,55 @@
 <!-- Dialogo de entrada a la plataforma con el mail y la contraseña -->
 
-<div style="
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-background-color: white;">
-
-  <mat-card style="max-width: 400px;">
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+  "
+>
+  <mat-card style="max-width: 400px">
     <mat-card-header><h4>Inicio de Sesion</h4></mat-card-header>
     <mat-card-content>
-      <form
-      (ngSubmit)="onSubmit()"
-      [formGroup]="loginForm">
-
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
         <!-- USUARIO -->
 
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-            <input formControlName="Email" matInput />
-            <mat-hint>Debe ingresar un mail valido</mat-hint>
-            <mat-icon mat-sufix>mail</mat-icon>
-
-
+          <input formControlName="Email" matInput />
+          <mat-hint>Debe ingresar un mail valido</mat-hint>
+          <mat-icon mat-sufix>mail</mat-icon>
         </mat-form-field>
-          <!-- CONTRASEÑA -->
+        <!-- CONTRASEÑA -->
 
-          <mat-form-field appearance="outline">
-             <mat-label>Password</mat-label>
-              <input formControlName="Password" matInput />
-              <mat-hint>Debe ingresar su contraseña</mat-hint>
-              <mat-icon mat-sufix>lock</mat-icon>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="Password" matInput />
+          <mat-hint>Debe ingresar su contraseña</mat-hint>
+          <mat-icon mat-sufix>lock</mat-icon>
         </mat-form-field>
 
-          <!-- SELECTOR DE USUARIO -->
+        <!-- SELECTOR DE USUARIO -->
 
-          <mat-form-field>
-              <mat-label>Rol</mat-label>
-                <mat-select>
-                  <mat-option value="Admin">Admin</mat-option>
-                  <mat-option value="User">User</mat-option>
-                </mat-select>
-          </mat-form-field>
+        <mat-form-field>
+          <mat-label>Rol</mat-label>
+          <mat-select>
+            <mat-option value="Admin">Admin</mat-option>
+            <mat-option value="User">User</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-          <!-- boton para inicio de sesion -->
+        <!-- boton para inicio de sesion -->
 
-          <button
+        <button
           routerLink="../../dashboard"
           type="submit"
           class="w-full mt-5"
-          mat-flat-button>Iniciar Sesion</button>
+          mat-flat-button
+        >
+          Iniciar Sesion
+        </button>
       </form>
       <router-outlet />
     </mat-card-content>

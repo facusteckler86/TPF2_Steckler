@@ -8,32 +8,38 @@
 
 <mat-dialog-content>
   <form [formGroup]="courseForm">
-  <mat-form-field class="w-full">
-    <mat-label>Nombre del Curso</mat-label>
-    <input formControlName="name" matInput />
-    <mat-error>El campo es requerido</mat-error>
-  </mat-form-field>
-
-      <!-- Rango de fechas -->
-
-  <mat-form-field>
-
-    <mat-label>Seleccione el inicio/fin del curso</mat-label>
-
-    <mat-date-range-input [formGroup]="courseForm" [rangePicker]="picker">
-
-      <input matStartDate formControlName="startDate" placeholder="Fecha de inicio">
-      <input matEndDate formControlName="endDate" placeholder="Fecha de fin">
-
-    </mat-date-range-input>
-
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-     <mat-date-range-picker #picker></mat-date-range-picker>
+    <mat-form-field class="w-full">
+      <mat-label>Nombre del Curso</mat-label>
+      <input formControlName="name" matInput />
+      <mat-error>El campo es requerido</mat-error>
     </mat-form-field>
 
+    <!-- Rango de fechas -->
 
-</form>
+    <mat-form-field>
+      <mat-label>Seleccione el inicio/fin del curso</mat-label>
+
+      <mat-date-range-input [formGroup]="courseForm" [rangePicker]="picker">
+        <input
+          matStartDate
+          formControlName="startDate"
+          placeholder="Fecha de inicio"
+        />
+        <input
+          matEndDate
+          formControlName="endDate"
+          placeholder="Fecha de fin"
+        />
+      </mat-date-range-input>
+
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </form>
 </mat-dialog-content>
 
 <!-- Botones de cierre del dialogo -->
@@ -42,5 +48,3 @@
   <button mat-dialog-close mat-flat-button>Cancelar</button>
   <button (click)="onSubmit()" mat-flat-button>Guardar</button>
 </mat-dialog-actions>
-
-

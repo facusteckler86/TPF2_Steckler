@@ -21,15 +21,14 @@ export class CoursesDialogComponent {
       startDate: [],
       endDate: [],
     });
-    if(this.editingCourse){
-      this.courseForm.patchValue(this.editingCourse)
+    if (this.editingCourse) {
+      this.courseForm.patchValue(this.editingCourse);
     }
   }
   onSubmit(): void {
     if (this.courseForm.valid) {
       this.matDialogRef.close(this.courseForm.value);
     } else {
-
     }
   }
 }

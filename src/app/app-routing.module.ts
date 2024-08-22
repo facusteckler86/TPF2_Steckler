@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { AuthComponent } from './features/auth/auth.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { authGuard } from './core/guards/guards/auth.guard';
+
+
+// Aplicacion de Lazy Loading y de los Guards
 
 const routes: Routes = [
   {
@@ -16,6 +20,7 @@ const routes: Routes = [
 
   {
     path: 'dashboard',
+    canActivate: [authGuard],
     component: DashboardComponent,
     loadChildren: () =>
       import('./features/dashboard/dashboard.module').then(

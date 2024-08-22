@@ -43,8 +43,6 @@ export class CoursesComponent implements OnInit {
   ];
   element: any;
 
-
-
   constructor(
     private matDialog: MatDialog,
     private coursesService: CoursesService
@@ -84,9 +82,9 @@ export class CoursesComponent implements OnInit {
             next: (course) => {
               this.courseList = [...course];
             },
-            complete: ()=>{
+            complete: () => {
               this.isLoading = false;
-            }
+            },
           });
         },
       });
@@ -129,5 +127,3 @@ export class CoursesComponent implements OnInit {
     }
   }
 }
-
-

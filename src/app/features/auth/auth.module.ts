@@ -15,9 +15,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { CoreModule } from '../../core/core.module';
 
 @NgModule({
-  declarations: [
-    AuthComponent
-  ],
+  declarations: [AuthComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
@@ -31,8 +29,7 @@ import { CoreModule } from '../../core/core.module';
     MatButtonModule,
     MatSelectModule,
     SharedModule,
-    CoreModule
+    CoreModule,
   ],
-
 })
-export class AuthModule { }
+export class AuthModule {}
