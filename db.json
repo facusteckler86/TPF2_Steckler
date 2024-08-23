@@ -1,11 +1,50 @@
 {
-  "users":[
+  "users": [
     {
       "id": "01",
       "name": "Facundo",
       "apellido": "Steckler"
-
+    },
+    {
+      "id": "02",
+      "name": "Esteban",
+      "apellido": "Perez"
+    },
+    {
+      "id": "a55e",
+      "first_name": "Facundo",
+      "last_name": "Steckler",
+      "email": "facundomsteckler@gmail.com"
+    },
+    {
+      "id": "2dd8",
+      "first_name": "Facundo",
+      "last_name": "Steckler",
+      "email": "facundomsteckler@gmail.com"
     }
-
+  ],
+  "courses": [
+    {
+      "id": "Ab001",
+      "name": "Angular",
+      "startDate": "",
+      "endDate": ""
+    },
+    {
+      "id": "Ab002",
+      "name": "Java",
+      "startDate": "",
+      "endDate": ""
+    },
+    {
+      "id": "1c58",
+      "name": "Js",
+      "startDate": "",
+      "endDate": ""
+    },
+    {
+      "id": "0d57",
+      "name": "Js"
+    }
   ]
 }

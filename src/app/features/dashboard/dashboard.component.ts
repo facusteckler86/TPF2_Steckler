@@ -14,6 +14,8 @@ export class DashboardComponent {
 
   authUser$: Observable<User | null>;
 
+  nombreEntorno = environment.envName;
+
   constructor(private authService: AuthService) {
     this.authUser$ = this.authService.authUser$.pipe(tap(console.log));
   }

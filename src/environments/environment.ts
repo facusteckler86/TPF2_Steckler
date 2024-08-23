@@ -1,4 +1,4 @@
 export const environment = {
-   envName: 'Students',
-  apiURL: 'https://www.my-real-api.com/api/v1'
+  envName: 'Produccion',
+  apiURL: 'https://www.my-real-page/api',
 };

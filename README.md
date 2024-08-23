@@ -17,6 +17,9 @@
 
 #Token para Login : QWERTY123456;
 
+Para el uso de Api Rest es mediante Postman, me largo un error feo en la terminal, por eso tuve 
+que clonar el proyecto desde el ultimo commit, pero pude instalar el Json-Server
+
 
 
 ## Deploy realizado en Vercel

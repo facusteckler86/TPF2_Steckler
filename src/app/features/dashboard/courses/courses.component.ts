@@ -4,6 +4,8 @@ import { CoursesDialogComponent } from './course-component-dialog/course-dialog.
 import { Course } from './models';
 import { generateId } from '../../../shared/utils';
 import { CoursesService } from '../../../core/service/courses.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -11,6 +13,7 @@ import { CoursesService } from '../../../core/service/courses.service';
   styleUrl: './courses.component.css',
 })
 export class CoursesComponent implements OnInit {
+
   nombreCurso: '{{nombreCurso}}' | undefined;
 
   displayedColumns: string[] = ['id', 'name', 'starDate', 'endDate', 'actions'];
@@ -43,9 +46,12 @@ export class CoursesComponent implements OnInit {
   ];
   element: any;
 
+
+
   constructor(
     private matDialog: MatDialog,
-    private coursesService: CoursesService
+    private coursesService: CoursesService,
+    private HttpClient : HttpClient,
   ) {}
 
   // onInit para el inicio de los cursos, se demora un poco en verse la lista
@@ -54,6 +60,8 @@ export class CoursesComponent implements OnInit {
   }
 
   isLoading = false;
+
+
 
   loadCourses() {
     this.isLoading = true;

@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { Observable } from 'rxjs';
+import { Students } from '../courses/models';
 
 
 export interface StudentsList {
@@ -24,5 +27,10 @@ const ELEMENT_DATA: StudentsList[] = [
 })
 export class StudentsComponent {
 
+  constructor(private HttpClient: HttpClient){}
+
+  getStudents(): Observable<Students[]>{
+    return this.HttpClient.get<Students[]>('http://localhost:3000/users')
+  }
 
 }

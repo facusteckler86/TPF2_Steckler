@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../features/dashboard/courses/models';
 import { map, Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -50,13 +53,10 @@ export class CoursesService {
     );
   }
 
+ constructor(private HttpClient: HttpClient){}
+
   getCourses(): Observable<Course[]> {
-    return new Observable((observer) => {
-      setTimeout(() => {
-        observer.next(this.MY_DATABASE);
-        observer.complete();
-      }, 1500);
-    });
+    return this.HttpClient.get<Course[]>(environment.apiURL + '/courses')
   }
 
   //Aca se conecta para ver el detalle de los id de cursos.
