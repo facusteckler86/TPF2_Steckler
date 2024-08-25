@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../features/dashboard/courses/models';
-import { map, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { map, Observable, tap } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 
@@ -36,11 +36,12 @@ export class CoursesService {
     },
   ];
 
+  constructor(private HttpClient: HttpClient) {}
+
+
+
   editCourseById(id: string, update: Course) {
-    this.MY_DATABASE = this.MY_DATABASE.map((el) =>
-      el.id === id ? { ...update, id } : el
-    );
-    return this.getCourses();
+    return this.HttpClient.put(environment.apiURL + 'courses' + id, update);
   }
 
   searchCourseByName(search: string): Observable<Course[]> {
@@ -52,11 +53,8 @@ export class CoursesService {
       )
     );
   }
-
- constructor(private HttpClient: HttpClient){}
-
   getCourses(): Observable<Course[]> {
-    return this.HttpClient.get<Course[]>(environment.apiURL + '/courses')
+    return this.HttpClient.get<Course[]>(environment.apiURL + '/courses');
   }
 
   //Aca se conecta para ver el detalle de los id de cursos.
@@ -72,8 +70,7 @@ export class CoursesService {
     return this.getCourses();
   }
 
-  deleteCourseById(id: string): Observable<Course[]> {
-    this.MY_DATABASE = this.MY_DATABASE.filter((el) => el.id != id);
-    return this.getCourses();
+  deleteCourseById(id: string) {
+    return this.HttpClient.delete(environment.apiURL + 'courses' + id);
   }
 }

@@ -16,8 +16,8 @@ export interface User {
   password: string;
   role: UserRole;
   id: string;
-  firstName: string;
-  lastName: string;
+  name: string;
+  apellido: string;
   token: string;
 }
 export interface ADMIN {
@@ -25,6 +25,8 @@ export interface ADMIN {
   password: string,
   id: string,
   token: string,
+  name: string,
+  apellido: string
 }
 
 export interface Students {
@@ -40,3 +42,9 @@ export interface StudentsList {
   apellido: string;
   course: string;
 };
+
+export interface role {
+  id: number;
+  name: string,
+  apellido: string
+}

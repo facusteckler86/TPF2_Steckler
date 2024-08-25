@@ -4,7 +4,7 @@ import { CoursesDialogComponent } from './course-component-dialog/course-dialog.
 import { Course } from './models';
 import { generateId } from '../../../shared/utils';
 import { CoursesService } from '../../../core/service/courses.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -13,7 +13,6 @@ import { Observable } from 'rxjs';
   styleUrl: './courses.component.css',
 })
 export class CoursesComponent implements OnInit {
-
   nombreCurso: '{{nombreCurso}}' | undefined;
 
   displayedColumns: string[] = ['id', 'name', 'starDate', 'endDate', 'actions'];
@@ -46,12 +45,10 @@ export class CoursesComponent implements OnInit {
   ];
   element: any;
 
-
-
   constructor(
     private matDialog: MatDialog,
     private coursesService: CoursesService,
-    private HttpClient : HttpClient,
+    private HttpClient: HttpClient
   ) {}
 
   // onInit para el inicio de los cursos, se demora un poco en verse la lista
@@ -61,14 +58,21 @@ export class CoursesComponent implements OnInit {
 
   isLoading = false;
 
-
-
   loadCourses() {
     this.isLoading = true;
     this.coursesService.getCourses().subscribe({
       next: (Courses) => {
         this.courseList = Courses;
       },
+
+      error: (error) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.status === 404) {
+            alert('Curso no encontrado, proba con otro');
+          }
+        }
+      },
+
       complete: () => {
         this.isLoading = false;
       },
@@ -109,8 +113,8 @@ export class CoursesComponent implements OnInit {
             this.coursesService
               .editCourseById(editingCourse.id, value)
               .subscribe({
-                next: (Course) => {
-                  this.courseList = [...Course];
+                next: (course) => {
+                 this.courseList = []
                 },
               });
           }
@@ -125,8 +129,8 @@ export class CoursesComponent implements OnInit {
       this.isLoading = true;
 
       this.coursesService.deleteCourseById(id).subscribe({
-        next: (Course) => {
-          this.courseList = [...Course];
+        next: (courses) => {
+          this.courseList = [];
         },
         complete: () => {
           this.isLoading = false;

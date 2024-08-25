@@ -1,26 +1,20 @@
 {
   "users": [
     {
-      "id": "01",
-      "name": "Facundo",
-      "apellido": "Steckler"
+      "id": "9dfe",
+      "first_name": "Facundo",
+      "last_name": "Steckler",
+      "email": "facundomsteckler@gmail.com",
+      "token": "QWERTY123456",
+      "role": "ADMIN"
     },
     {
-      "id": "02",
+      "id": "78c3",
       "name": "Esteban",
-      "apellido": "Perez"
-    },
-    {
-      "id": "a55e",
-      "first_name": "Facundo",
-      "last_name": "Steckler",
-      "email": "facundomsteckler@gmail.com"
-    },
-    {
-      "id": "2dd8",
-      "first_name": "Facundo",
-      "last_name": "Steckler",
-      "email": "facundomsteckler@gmail.com"
+      "apellido": "Perez",
+      "email": "test@mail.com",
+      "token": "ABCD123",
+      "role": "USER"
     }
   ],
   "courses": [
@@ -44,6 +38,14 @@
     },
     {
       "id": "0d57",
+      "name": "Js"
+    },
+    {
+      "id": "7287",
+      "name": "Js"
+    },
+    {
+      "id": "9ef8",
       "name": "Js"
     }
   ]

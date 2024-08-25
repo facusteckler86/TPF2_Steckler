@@ -30,12 +30,20 @@
   <!-- INICIO DE LA TOOLBAR -->
 
   <mat-toolbar>
+    <div class="flex justify-content-between w-full align-items-center">
     <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
       <mat-icon>apps</mat-icon>
     </button>
 
     <span>Alumnos</span>
     <span class="example-spacer"></span>
+
+      @if(authUser$ | async; as user){
+        <span>
+          {{user.name + '' + user.apellido}}
+        </span>
+      }
+      </div>
   </mat-toolbar>
 
   <!-- llamado al router -->

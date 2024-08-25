@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
+import { rootReducer } from './core/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,7 @@ import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(rootReducer, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
   ],
