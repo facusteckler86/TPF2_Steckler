@@ -34,7 +34,7 @@ export class EnrollmentsService {
         .pipe(
           concatMap((enrollmentCreated) =>
             this.http.get<Enrollment>(
-              environment.apiUrl +
+              environment.apiURL +
                 '/sales/' +
                 enrollmentCreated.id +
                 '?_embed=product&_embed=student'

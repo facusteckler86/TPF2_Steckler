@@ -4,6 +4,10 @@ import { CommonModule } from '@angular/common';
 import { EnrollmentsRoutingModule } from './enrollments-routing.module';
 import { EnrollmentsComponent } from './enrollments.component';
 import { CoreModule } from '../../../core/core.module';
+import { EffectsModule } from '@ngrx/effects';
+import { EnrollmentsEffects } from './store/enrollments.effects';
+import { StoreModule } from '@ngrx/store';
+import { enrollmentsFeature } from './store/enrollments.reducer';
 
 
 @NgModule({
@@ -13,7 +17,9 @@ import { CoreModule } from '../../../core/core.module';
   imports: [
     CommonModule,
     EnrollmentsRoutingModule,
-    CoreModule
+    CoreModule,
+    EffectsModule.forFeature([EnrollmentsEffects]),
+    StoreModule.forFeature(enrollmentsFeature),
   ]
 })
 export class EnrollmentsModule { }
