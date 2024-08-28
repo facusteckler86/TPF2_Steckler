@@ -6,40 +6,37 @@ import { environment } from '../../../environments/environment.development';
 import { Enrollment } from '../../features/dashboard/enrollments/models';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EnrollmentsService {
-
   private MY_DATABASE: Enrollment[] = [];
-
-
 
   constructor(private http: HttpClient) {}
 
-  getEnrollments(): Observable<Enrollment[]>{
+  getEnrollments(): Observable<Enrollment[]> {
     return this.http.get<Enrollment[]>(
-      environment.apiURL + '/sales?_embed=students&_embed=product'
+      environment.apiURL + '/enrollments?_embed=students&_embed=courses'
     );
-    }
-    getStudentsAndProducts(): Observable<LoadStudentsAndProductsResponse> {
-      return forkJoin({
-        students: this.http.get<Students[]>(environment.apiURL + '/students'),
-        products: this.http.get<Course[]>(environment.apiURL + '/course'),
-      });
-    }
+  }
+  getStudentsAndProducts(): Observable<LoadStudentsAndProductsResponse> {
+    return forkJoin({
+      students: this.http.get<Students[]>(environment.apiURL + '/students'),
+      products: this.http.get<Course[]>(environment.apiURL + '/course'),
+    });
+  }
 
-    addEnrollment(payload: CreateEnrollmentPayload): Observable<Enrollment> {
-      return this.http
-        .post<Enrollment>(environment.apiURL + '/sales', payload)
-        .pipe(
-          concatMap((enrollmentCreated) =>
-            this.http.get<Enrollment>(
-              environment.apiURL +
-                '/sales/' +
-                enrollmentCreated.id +
-                '?_embed=product&_embed=student'
-            )
+  addEnrollment(payload: CreateEnrollmentPayload): Observable<Enrollment> {
+    return this.http
+      .post<Enrollment>(environment.apiURL + '/sales', payload)
+      .pipe(
+        concatMap((enrollmentCreated) =>
+          this.http.get<Enrollment>(
+            environment.apiURL +
+              '/sales/' +
+              enrollmentCreated.id +
+              '?_embed=product&_embed=student'
           )
-        );
-    }
+        )
+      );
+  }
 }

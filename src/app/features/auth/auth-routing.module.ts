@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
 {
   path: "login",
+  component: LoginComponent,
   loadChildren: () => import("./login/login.module")
   .then((refArchivo)=> refArchivo.LoginModule)
 },
