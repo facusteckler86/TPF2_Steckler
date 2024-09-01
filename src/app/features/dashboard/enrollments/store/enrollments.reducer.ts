@@ -1,6 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { EnrollmentsActions } from './enrollments.actions';
 import { Enrollment } from '../models';
+import { Course, Students } from '../../courses/models';
 
 export const enrollmentsFeatureKey = 'enrollments';
 
@@ -8,12 +9,18 @@ export interface State {
   isLoading: boolean;
   enrollments: Enrollment[];
   error: unknown;
+  isLoadingStudentsAndCourses: boolean,
+  students: Students[],
+  courses: Course[]
 }
 
 export const initialState: State = {
   isLoading: false,
   enrollments: [],
   error: null,
+  isLoadingStudentsAndCourses: true,
+  students: [],
+  courses: []
 };
 
 export const reducer = createReducer(

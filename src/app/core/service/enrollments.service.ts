@@ -3,7 +3,7 @@ import { Course, Students } from '../../features/dashboard/courses/models';
 import { concatMap, forkJoin, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
-import { Enrollment } from '../../features/dashboard/enrollments/models';
+import { Enrollment, LoadStudentsAndCoursesResponse } from '../../features/dashboard/enrollments/models';
 
 @Injectable({
   providedIn: 'root',
@@ -18,23 +18,25 @@ export class EnrollmentsService {
       environment.apiURL + '/enrollments?_embed=students&_embed=courses'
     );
   }
-  getStudentsAndProducts(): Observable<LoadStudentsAndProductsResponse> {
+
+
+  getStudentsAndCourses(): Observable<LoadStudentsAndCoursesResponse> {
     return forkJoin({
       students: this.http.get<Students[]>(environment.apiURL + '/students'),
-      products: this.http.get<Course[]>(environment.apiURL + '/course'),
-    });
+      courses: this.http.get<Course[]>(environment.apiURL + '/course'),
+    })
   }
 
   addEnrollment(payload: CreateEnrollmentPayload): Observable<Enrollment> {
     return this.http
-      .post<Enrollment>(environment.apiURL + '/sales', payload)
+      .post<Enrollment>(environment.apiURL + '/enrollments', payload)
       .pipe(
         concatMap((enrollmentCreated) =>
           this.http.get<Enrollment>(
             environment.apiURL +
-              '/sales/' +
+              '/enrollments/' +
               enrollmentCreated.id +
-              '?_embed=product&_embed=student'
+              '?_embed=courses&_embed=student'
           )
         )
       );
