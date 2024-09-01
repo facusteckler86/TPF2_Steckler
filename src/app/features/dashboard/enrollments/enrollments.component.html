@@ -1,1 +1,45 @@
-<p>enrollments works!</p>
+<h1>Inscripciones</h1>
+<hr />
+
+@if (isLoading$ | async) {
+<p>Cargando....</p>
+} @else { @if(error$ | async) {
+
+<p>Ocurrio un error inesperado!!!</p>
+
+} @else {
+
+<form
+formGroup="enrollmentForm"
+class="grid formgrid">
+  <div class="col-6">
+    <mat-form-field class="w-full">
+      <mat-select
+        formControlName="studentsId"
+        placeholder="Selecciona un Estudiante">
+        @for (student of students$ | async; track $index) {
+        <mat-option [value]="student.id">{{ student.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field class="w-full">
+      <mat-select
+        formControlName="coursesId"
+        placeholder="Elegi un Curso">
+        @for (courses of courses$| async; track $index) {
+        <mat-option [value]="courses.id"
+          >{{ courses.name }} - {{ courses.id }}</mat-option
+        >
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>
+
+<button (click)="addEnrollment()" mat-flatt-button>check_circle</button>
+
+<pre>{{ enrollments$ | async | json }}</pre>
+
+} }

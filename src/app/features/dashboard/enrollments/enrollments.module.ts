@@ -8,6 +8,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { EnrollmentsEffects } from './store/enrollments.effects';
 import { StoreModule } from '@ngrx/store';
 import { enrollmentsFeature } from './store/enrollments.reducer';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -20,6 +23,9 @@ import { enrollmentsFeature } from './store/enrollments.reducer';
     CoreModule,
     EffectsModule.forFeature([EnrollmentsEffects]),
     StoreModule.forFeature(enrollmentsFeature),
+    MatButtonModule,
+    MatFormFieldModule,
+    MatSelectModule
   ]
 })
 export class EnrollmentsModule { }
