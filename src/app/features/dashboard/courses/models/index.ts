@@ -3,8 +3,7 @@
 export interface Course {
   id: string;
   name: string;
-  startDate: Date;
-  endDate: Date;
+
 }
 
 // Base de la plantilla de la interface de usuarios

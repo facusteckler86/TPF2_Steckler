@@ -3,13 +3,14 @@ import { Course, Students } from '../../features/dashboard/courses/models';
 import { concatMap, forkJoin, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
-import { Enrollment, LoadStudentsAndCoursesResponse } from '../../features/dashboard/enrollments/models';
+import { CreateEnrollmentPayload, Enrollment, LoadStudentsAndCoursesResponse } from '../../features/dashboard/enrollments/models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EnrollmentsService {
   private MY_DATABASE: Enrollment[] = [];
+  getStudentsAndCourses: any;
 
   constructor(private http: HttpClient) {}
 
@@ -19,12 +20,11 @@ export class EnrollmentsService {
     );
   }
 
-
-  getStudentsAndCourses(): Observable<LoadStudentsAndCoursesResponse> {
+  getStudentsAndProducts(): Observable<LoadStudentsAndCoursesResponse> {
     return forkJoin({
       students: this.http.get<Students[]>(environment.apiURL + '/students'),
-      courses: this.http.get<Course[]>(environment.apiURL + '/course'),
-    })
+      course: this.http.get<Course[]>(environment.apiURL + '/course'),
+    });
   }
 
   addEnrollment(payload: CreateEnrollmentPayload): Observable<Enrollment> {

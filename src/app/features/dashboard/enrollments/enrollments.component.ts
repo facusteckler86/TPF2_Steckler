@@ -34,8 +34,8 @@ export class EnrollmentsComponent implements OnInit {
     this.courses$ = this.store.select(selectEnrollmentsCourses);
 
     this.enrollmentForm = this.fb.group({
-      studentId: [null, Validators.required],
-      productId: [null, Validators.required],
+      studentsId: [null, Validators.required],
+      courseId: [null, Validators.required],
     });
   }
   ngOnInit(): void {
@@ -50,8 +50,8 @@ export class EnrollmentsComponent implements OnInit {
       this.store.dispatch(
         EnrollmentsActions.createEnrollments({
           payload: {
-            productId: this.enrollmentForm.get('courseId')?.value,
-            studentId: this.enrollmentForm.get('studentId')?.value,
+            courseId: this.enrollmentForm.get('courseId')?.value,
+            studentsId: this.enrollmentForm.get('studentId')?.value,
           },
         })
       );

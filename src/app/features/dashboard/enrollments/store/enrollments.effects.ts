@@ -4,44 +4,52 @@ import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { EnrollmentsActions } from './enrollments.actions';
 import { EnrollmentsService } from '../../../../core/service/enrollments.service';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Injectable()
 export class EnrollmentsEffects {
+
+  createEnrollments$ = createEffect(()=>{
+    return this.actions$.pipe(
+      ofType(EnrollmentsActions.createEnrollments),
+      concatMap((Actions)=>
+      this.enrollmentsService.addEnrollment(Actions.payload).pipe(
+        map((data)=> EnrollmentsActions.createEnrollmentSuccess({data})),
+        catchError((error)=>
+        of(EnrollmentsActions.createEnrollmentFailure({error})))
+      ))
+    )
+  })
+
   loadEnrollments$ = createEffect(() => {
     return this.actions$.pipe(
       //Filtro de acciones en la aplicacion
-      ofType(EnrollmentsActions.loadEnrollments),
-      concatMap(() =>
+      ofType(EnrollmentsActions.createEnrollments),
+      concatMap((action) =>
         // Uso de nuestro Observable
-        this.enrollmentsService.getEnrollments().pipe(
-          map((data) => EnrollmentsActions.loadEnrollmentsSuccess({ data })),
+        this.enrollmentsService.addEnrollment(action.payload).pipe(
+          map((data) => EnrollmentsActions.createEnrollmentSuccess({ data })),
 
           catchError((error) =>
-            of(EnrollmentsActions.loadEnrollmentsFailure({ error }))
+            of(EnrollmentsActions.createEnrollmentFailure({ error }))
           )
         )
       )
     );
   });
 
-  loadStudentsAndCourses$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(EnrollmentsActions.loadStudentsAndCourses),
-      concatMap(() =>
-        this.enrollmentsService.getStudentsAndCourses().pipe(
-          map((data) =>
-            EnrollmentsActions.loadStudentsAndCoursesSuccess({ data })
-          ),
-          catchError((error) =>
-            of(EnrollmentsActions.loadStudentsAndCoursesFailure({ error }))
-          )
-        )
-      )
-    );
-  });
+loadStudentsAndCourses$ = createEffect(()=>{
+  return this.actions$.pipe(
+    ofType(EnrollmentsActions.loadStudentsAndCourses),
+    concatMap((Actions)=>
+    this.enrollmentsService.getStudentsAndCourses(Actions.payload).pipe(
+      map((data)=> EnrollmentsActions.loadStudentsAndCoursesSuccess({data})),
 
-  constructor(
-    private actions$: Actions,
-    private enrollmentsService: EnrollmentsService
-  ) {}
+      catchError((error)=>
+      of(EnrollmentsActions.loadStudentsAndCoursesFailure({error})))
+    ))
+  )
+})
+
+  constructor( private actions$: Actions, private enrollmentsService: EnrollmentsService) {}
 }
