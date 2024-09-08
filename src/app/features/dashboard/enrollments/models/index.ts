@@ -1,4 +1,4 @@
-import { Course } from "../../courses/models";
+import { Course, students } from "../../courses/models";
 
 export interface Enrollment {
   id: string;
@@ -6,16 +6,10 @@ export interface Enrollment {
   courseId: string;
 }
 
-export interface Student {
-  id: string;
-  name: string;
-  apellido: string
 
-}
-
-export interface LoadStudentsAndCoursesResponse{
-  students: Student[],
-  courses:Course[]
+export interface LoadstudentsAndCoursesResponse{
+  students: students[],
+  course:Course[]
 }
 
 export interface CreateEnrollmentPayload{

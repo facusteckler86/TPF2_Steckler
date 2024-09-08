@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
-import { Students } from '../courses/models';
+import { students } from '../courses/models';
 
 
-export interface StudentsList {
+export interface studentsList {
   position: number;
   name: string;
   apellido: string;
@@ -13,7 +13,7 @@ export interface StudentsList {
 
 }
 
-const ELEMENT_DATA: StudentsList[] = [
+const ELEMENT_DATA: studentsList[] = [
   {position: 1, name: 'Juan', apellido: "Gonzalez", course: "Python" },
   {position: 2, name: 'Esteban', apellido: "Perez", course: "Java"},
   {position: 3, name: 'Facundo', apellido: "Steckler", course: "Angular" },
@@ -25,12 +25,12 @@ const ELEMENT_DATA: StudentsList[] = [
   templateUrl: './students.component.html',
   styleUrl: './students.component.css'
 })
-export class StudentsComponent {
+export class studentsComponent {
 
   constructor(private HttpClient: HttpClient){}
 
-  getStudents(): Observable<Students[]>{
-    return this.HttpClient.get<Students[]>('http://localhost:3000/users')
+  getstudents(): Observable<students[]>{
+    return this.HttpClient.get<students[]>('http://localhost:3000/users')
   }
 
 }

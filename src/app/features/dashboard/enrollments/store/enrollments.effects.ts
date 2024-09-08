@@ -14,9 +14,9 @@ export class EnrollmentsEffects {
       ofType(EnrollmentsActions.createEnrollments),
       concatMap((Actions)=>
       this.enrollmentsService.addEnrollment(Actions.payload).pipe(
-        map((data)=> EnrollmentsActions.createEnrollmentSuccess({data})),
+        map((data)=> EnrollmentsActions.createEnrollmentsSuccess({data})),
         catchError((error)=>
-        of(EnrollmentsActions.createEnrollmentFailure({error})))
+        of(EnrollmentsActions.createEnrollmentsFailure({error})))
       ))
     )
   })
@@ -28,10 +28,10 @@ export class EnrollmentsEffects {
       concatMap((action) =>
         // Uso de nuestro Observable
         this.enrollmentsService.addEnrollment(action.payload).pipe(
-          map((data) => EnrollmentsActions.createEnrollmentSuccess({ data })),
+          map((data) => EnrollmentsActions.createEnrollmentsSuccess({ data })),
 
           catchError((error) =>
-            of(EnrollmentsActions.createEnrollmentFailure({ error }))
+            of(EnrollmentsActions.createEnrollmentsFailure({ error }))
           )
         )
       )
@@ -41,13 +41,14 @@ export class EnrollmentsEffects {
 loadStudentsAndCourses$ = createEffect(()=>{
   return this.actions$.pipe(
     ofType(EnrollmentsActions.loadStudentsAndCourses),
-    concatMap((Actions)=>
-    this.enrollmentsService.getStudentsAndCourses(Actions.payload).pipe(
-      map((data)=> EnrollmentsActions.loadStudentsAndCoursesSuccess({data})),
+    concatMap((action)=>
+      this.enrollmentsService.getstudentsAndCourses(action.payload).pipe(
+        map((data)=>EnrollmentsActions.loadStudentsAndCoursesSuccess({data})),
 
-      catchError((error)=>
-      of(EnrollmentsActions.loadStudentsAndCoursesFailure({error})))
-    ))
+        catchError((error)=>
+        of(EnrollmentsActions.loadStudentsAndCoursesFailure({error})))
+      )
+    )
   )
 })
 

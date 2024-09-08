@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Course, Students } from '../../features/dashboard/courses/models';
+import { Course, students } from '../../features/dashboard/courses/models';
 import { concatMap, forkJoin, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
-import { CreateEnrollmentPayload, Enrollment, LoadStudentsAndCoursesResponse } from '../../features/dashboard/enrollments/models';
+import { CreateEnrollmentPayload, Enrollment, LoadstudentsAndCoursesResponse } from '../../features/dashboard/enrollments/models';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EnrollmentsService {
   private MY_DATABASE: Enrollment[] = [];
-  getStudentsAndCourses: any;
+  getstudentsAndCourses: any;
 
   constructor(private http: HttpClient) {}
 
@@ -20,9 +20,9 @@ export class EnrollmentsService {
     );
   }
 
-  getStudentsAndProducts(): Observable<LoadStudentsAndCoursesResponse> {
+  getstudentsAndProducts(): Observable<LoadstudentsAndCoursesResponse> {
     return forkJoin({
-      students: this.http.get<Students[]>(environment.apiURL + '/students'),
+      students: this.http.get<students[]>(environment.apiURL + '/students'),
       course: this.http.get<Course[]>(environment.apiURL + '/course'),
     });
   }
@@ -36,7 +36,7 @@ export class EnrollmentsService {
             environment.apiURL +
               '/enrollments/' +
               enrollmentCreated.id +
-              '?_embed=courses&_embed=student'
+              '?_embed=courses&_embed=students'
           )
         )
       );

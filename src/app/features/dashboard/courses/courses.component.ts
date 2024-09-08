@@ -21,25 +21,25 @@ export class CoursesComponent implements OnInit {
     {
       id: '01',
       name: 'Angular',
-      startDate: new Date(),
+      starDate: new Date(),
       endDate: new Date(),
     },
     {
       id: '02',
       name: 'JavaScript',
-      startDate: new Date(),
+      starDate: new Date(),
       endDate: new Date(),
     },
     {
       id: '03',
       name: 'Java',
-      startDate: new Date(),
+      starDate: new Date(),
       endDate: new Date(),
     },
     {
       id: '04',
       name: 'Python',
-      startDate: new Date(),
+      starDate: new Date(),
       endDate: new Date(),
     },
   ];

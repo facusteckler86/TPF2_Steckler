@@ -18,8 +18,8 @@ class="grid formgrid">
       <mat-select
         formControlName="studentsId"
         placeholder="Selecciona un Estudiante">
-        @for (student of students$ | async; track $index) {
-        <mat-option [value]="student.id">{{ student.name }}</mat-option>
+        @for (students of students$ | async; track $index) {
+        <mat-option [value]="students.id">{{ students.name }}</mat-option>
         }
       </mat-select>
     </mat-form-field>

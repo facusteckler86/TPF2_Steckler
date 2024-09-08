@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { StudentsRoutingModule } from './students-routing.module';
-import { StudentsComponent } from './students.component';
+import { studentsRoutingModule } from './students-routing.module';
+import { studentsComponent } from './students.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -11,13 +11,13 @@ import { SharedModule } from '../../../shared/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
+
 @NgModule({
   declarations: [
-    StudentsComponent
-  ],
+    studentsComponent],
   imports: [
     CommonModule,
-    StudentsRoutingModule,
+    studentsRoutingModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule,
@@ -26,4 +26,4 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule
   ]
 })
-export class StudentsModule { }
+export class studentsModule { }

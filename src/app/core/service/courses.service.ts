@@ -66,7 +66,7 @@ export class CoursesService {
   }
 
   addCourse(course: Course): Observable<Course[]> {
-    this.MY_DATABASE.push(course);
+    this.MY_DATABASE.push();
     return this.getCourses();
   }
 

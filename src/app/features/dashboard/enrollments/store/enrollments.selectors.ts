@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromEnrollments from './enrollments.reducer';
-import { Students, Course } from '../../courses/models';
+import { students, Course } from '../../courses/models';
 
 export const selectEnrollmentsState = createFeatureSelector<fromEnrollments.State>(
   fromEnrollments.enrollmentsFeatureKey
@@ -20,7 +20,7 @@ export const selectEnrollmentsError = createSelector(
   (state) => state.error
 );
 
-export const selectEnrollmentsStudents = createSelector(
+export const selectEnrollmentsstudents = createSelector(
   selectEnrollmentsState,
   (state) => state.students
 );

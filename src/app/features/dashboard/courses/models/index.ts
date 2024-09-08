@@ -3,6 +3,8 @@
 export interface Course {
   id: string;
   name: string;
+  starDate: Date,
+  endDate: Date
 
 }
 
@@ -28,14 +30,14 @@ export interface ADMIN {
   apellido: string
 }
 
-export interface Students {
+export interface students {
   id: Number;
   name: string;
   apellido: string;
   course: string;
 }
 
-export interface StudentsList {
+export interface studentsList {
   id: number;
   name: string;
   apellido: string;
