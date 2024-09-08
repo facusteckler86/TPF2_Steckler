@@ -4,7 +4,6 @@ import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { EnrollmentsActions } from './enrollments.actions';
 import { EnrollmentsService } from '../../../../core/service/enrollments.service';
-import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Injectable()
 export class EnrollmentsEffects {
@@ -38,19 +37,19 @@ export class EnrollmentsEffects {
     );
   });
 
-loadStudentsAndCourses$ = createEffect(()=>{
-  return this.actions$.pipe(
-    ofType(EnrollmentsActions.loadStudentsAndCourses),
-    concatMap((action)=>
-      this.enrollmentsService.getstudentsAndCourses(action.payload).pipe(
-        map((data)=>EnrollmentsActions.loadStudentsAndCoursesSuccess({data})),
+// loadStudentsAndCourses$ = createEffect(()=>{
+//   return this.actions$.pipe(
+//     ofType(EnrollmentsActions.loadStudentsAndCourses),
+//     concatMap((action)=>
+//       this.enrollmentsService.getstudentsAndCourses(action.payload).pipe(
+//         map((data)=>EnrollmentsActions.loadStudentsAndCoursesSuccess({data})),
 
-        catchError((error)=>
-        of(EnrollmentsActions.loadStudentsAndCoursesFailure({error})))
-      )
-    )
-  )
-})
+//         catchError((error)=>
+//         of(EnrollmentsActions.loadStudentsAndCoursesFailure({error})))
+//       )
+//     )
+//   )
+// })
 
   constructor( private actions$: Actions, private enrollmentsService: EnrollmentsService) {}
 }

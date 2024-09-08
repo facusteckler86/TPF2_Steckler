@@ -6,7 +6,7 @@
       <a mat-list-item routerLink="home" routerLinkActive="activated">Inicio</a>
 
       <a
-      *ngIf="(authUser$ | async)?.role ==='ADMIN'"
+
       mat-list-item routerLink="courses" routerLinkActive="activated"
         >Cursos</a
       >
@@ -48,7 +48,7 @@
 
   <!-- llamado al router -->
 
-  <router-outlet></router-outlet>
+  <router-outlet />
 
   <!-- fin de la toolbar -->
   <div class="background-image"></div>

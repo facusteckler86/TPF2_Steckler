@@ -12,7 +12,7 @@ import { adminGuard } from '../../core/guards/guards/admin.guard';
 const routes: Routes = [
   {
     path: 'courses',
-    canActivate: [adminGuard],
+    //canActivate: [adminGuard],
     component: CoursesComponent,
     loadChildren: () =>
       import('./courses/courses.module').then(
