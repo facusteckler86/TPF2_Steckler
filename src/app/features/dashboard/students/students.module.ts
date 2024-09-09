@@ -9,6 +9,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import { SharedModule } from '../../../shared/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EffectsModule } from '@ngrx/effects';
+import { StudentsEffects } from './store/students.effects';
+import { StoreModule } from '@ngrx/store';
+import { studentsFeature } from './store/students.reducer';
+import { CoreModule } from '../../../core/core.module';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -23,7 +29,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatTableModule,
     SharedModule,
-    MatDialogModule
+    MatDialogModule,
+    CoreModule,
+    EffectsModule.forFeature([StudentsEffects]),
+    StoreModule.forFeature(studentsFeature),
+    MatListModule
   ]
 })
 export class studentsModule { }

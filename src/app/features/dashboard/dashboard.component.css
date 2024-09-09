@@ -27,3 +27,7 @@
   color: white;
   text-align: center;
 }
+
+.toolbar{
+  position: fixed;
+}

@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { students } from '../courses/models';
+import { Store } from '@ngrx/store';
+import { StudentsActions } from './store/students.actions';
+import { selectsLoadingStudents, selectStudents, selectStudentsError } from './store/students.selectors';
 
 
 export interface studentsList {
@@ -25,12 +28,33 @@ const ELEMENT_DATA: studentsList[] = [
   templateUrl: './students.component.html',
   styleUrl: './students.component.css'
 })
-export class studentsComponent {
+export class studentsComponent implements OnInit{
 
-  constructor(private HttpClient: HttpClient){}
+
+  students$: Observable<students[]>;
+  isLoading$ : Observable<boolean>;
+  error$: Observable<unknown>;
+
+  constructor(private HttpClient: HttpClient,private store: Store){
+    this.students$ = this.store.select(selectStudents);
+    this.isLoading$ = this.store.select(selectsLoadingStudents);
+    this.error$ = this.store.select(selectStudentsError)
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(StudentsActions.loadStudents());
+  }
 
   getstudents(): Observable<students[]>{
     return this.HttpClient.get<students[]>('http://localhost:3000/users')
+  }
+
+  deleteStudents(id: string){
+    this.store.dispatch(StudentsActions.deleteStudents({id}))
+  }
+
+  reloadPage(){
+    location.reload()
   }
 
 }

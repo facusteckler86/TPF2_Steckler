@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'courses',
     //canActivate: [adminGuard],
-    component: CoursesComponent,
+
     loadChildren: () =>
       import('./courses/courses.module').then(
         (refArhivo) => refArhivo.CoursesModule
@@ -21,13 +21,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent,
+
     loadChildren: () =>
       import('./home/home.module').then((refArhivo) => refArhivo.HomeModule),
   },
   {
     path: 'students',
-    component: studentsComponent,
+
     loadChildren: () =>
       import('./students/students.module').then(
         (refArhivo) => refArhivo.studentsModule
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'enrollments',
-    component: EnrollmentsComponent,
+
     loadChildren: () =>
       import('./enrollments/enrollments.module').then(
         (refArchivo) => refArchivo.EnrollmentsModule

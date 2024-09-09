@@ -33,8 +33,7 @@ export interface ADMIN {
 export interface students {
   id: Number;
   name: string;
-  apellido: string;
-  course: string;
+
 }
 
 export interface studentsList {

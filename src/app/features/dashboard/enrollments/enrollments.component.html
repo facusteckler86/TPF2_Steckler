@@ -1,4 +1,4 @@
-<h1>Inscripciones</h1>
+<h1 class="titulo">Inscripciones</h1>
 <hr />
 
 @if (isLoading$ | async) {
@@ -36,6 +36,8 @@ class="grid formgrid">
         >
         }
       </mat-select>
+
+
     </mat-form-field>
   </div>
 </form>
@@ -45,3 +47,7 @@ class="grid formgrid">
 <pre>{{ enrollments$ | async | json }}</pre>
 
 } }
+
+
+
+

@@ -7,6 +7,8 @@
 
       <a
 
+      *ngIf="(authUser$ | async)?.role ==='ADMIN'"
+
       mat-list-item routerLink="courses" routerLinkActive="activated"
         >Cursos</a
       >
@@ -23,13 +25,15 @@
         >Alta de Cursos</a
       >
 
-      <a (click)="logout()"></a>Cerrar Sesion
+      <a (click)="logout()" mat-list-item>Cerrar Sesion</a>
+
     </mat-nav-list>
+
   </mat-drawer>
 
   <!-- INICIO DE LA TOOLBAR -->
 
-  <mat-toolbar>
+  <mat-toolbar class="toolbar">
     <div class="flex justify-content-between w-full align-items-center">
     <button mat-icon-button (click)="drawer.toggle()" class="example-icon">
       <mat-icon>apps</mat-icon>

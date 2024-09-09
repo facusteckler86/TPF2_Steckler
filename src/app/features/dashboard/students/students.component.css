@@ -9,3 +9,8 @@
 .demo-button + .demo-button {
   margin-left: 8px;
 }
+
+.reload{
+  margin: 20px;
+  padding: 20px;
+}

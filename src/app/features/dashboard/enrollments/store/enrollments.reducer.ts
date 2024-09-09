@@ -2,6 +2,7 @@ import { createFeature, createReducer, on } from '@ngrx/store';
 import { EnrollmentsActions } from './enrollments.actions';
 import { Enrollment } from '../models';
 import { Course, students } from '../../courses/models';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 export const enrollmentsFeatureKey = 'enrollments';
 
@@ -36,6 +37,7 @@ export const reducer = createReducer(
       ...state,
       isLoading: false,
       enrollments: action.data,
+      error: null
     };
   }),
   on(EnrollmentsActions.loadEnrollmentsFailure, (state, action) => {
@@ -46,6 +48,8 @@ export const reducer = createReducer(
     };
   })
 );
+
+
 
 export const enrollmentsFeature = createFeature({
   name: enrollmentsFeatureKey,
