@@ -23,6 +23,11 @@ const ELEMENT_DATA: studentsList[] = [
 
 ];
 
+export class table{
+  displayedColumns: string[] = ['position', 'StudentsId'];
+
+}
+
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',

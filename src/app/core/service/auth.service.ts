@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { Store } from '@ngrx/store';
 import { RootState } from '../store';
 import { setAuthUser, unsetAuthUser } from '../store/auth/auth.actions';
+import { NotifierService } from './notifier.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,12 @@ export class AuthService {
   static verifyToken: any;
   static authUser$: any;
 
-  constructor(private router: Router, private http: HttpClient, private store: Store<RootState>) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private store: Store<RootState>,
+    private notifier: NotifierService
+  ) {}
 
   login(data: { email: string; password: string }) {
     this.http
@@ -38,45 +44,45 @@ export class AuthService {
           } else {
             const authUser = Response[0];
             localStorage.setItem('token', authUser.token);
-            this.store.dispatch(setAuthUser({payload: authUser}));
+            this.store.dispatch(setAuthUser({ payload: authUser }));
             this.router.navigate(['dashboard', 'home']);
           }
-
-          // Error: (err)=>{
-          // this.notifier.sendNotification('Error al iniciar sesion')
-          // }
         },
+        error: (err)=>{
+          this.notifier.sendNotification('Error al iniciar Sesion');
+        }
       });
+  }
+
+  verifyToken(): Observable<Boolean> {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return of(false);
+    }
+    return this.http
+      .get<User[]>(environment.apiURL + '/users', {
+        params: {
+          token: token,
+        },
+      })
+      .pipe(
+        map((response) => {
+          if (!response.length) {
+            return false;
+          } else {
+            const authUser = response[0];
+            localStorage.setItem('token', authUser.token);
+            this.store.dispatch(setAuthUser({ payload: authUser }));
+            this._authUser$.next(authUser);
+            return true;
+          }
+        })
+      );
   }
 
   logout() {
     localStorage.removeItem('token');
     this.store.dispatch(unsetAuthUser());
-    //this._authUser$.next(null);
     this.router.navigate(['auth', 'login']);
   }
-
-  verifyToken(): Observable<Boolean> {
-    const token = localStorage.getItem('token');
-    if(!token){
-      return of(false)
-    }
-    return this.http.get<User[]>(environment.apiURL + '/users',{
-      params:{
-        token: token,
-      }
-    }).pipe(
-      map((response)=>{
-        if(!response.length){
-          return false;
-        }else{
-          const authUser = response[0];
-          localStorage.setItem('token', authUser.token);
-          this.store.dispatch(setAuthUser({payload: authUser}));
-          this._authUser$.next(authUser);
-          return true;
-        }
-      } )
-    )
-  }
-  }
+}
