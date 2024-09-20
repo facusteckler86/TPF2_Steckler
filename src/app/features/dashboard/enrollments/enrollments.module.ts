@@ -11,6 +11,7 @@ import { enrollmentsFeature } from './store/enrollments.reducer';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatSelectModule } from '@angular/material/select';
     StoreModule.forFeature(enrollmentsFeature),
     MatButtonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule
   ]
 })
 export class EnrollmentsModule { }

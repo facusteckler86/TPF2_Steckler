@@ -12,7 +12,9 @@
 <form
 formGroup="enrollmentForm"
 class="grid formgrid">
-//parte del form donde se llama al estudiante
+
+<!-- //parte del form donde se llama al estudiante -->
+
 <div class="col-6">
     <mat-form-field class="w-full">
       <mat-select
@@ -24,7 +26,7 @@ class="grid formgrid">
       </mat-select>
     </mat-form-field>
   </div>
-  //parte del form de cursos
+  <!-- //parte del form de cursos -->
   <div class="col-6">
     <mat-form-field class="w-full">
       <mat-select
@@ -42,7 +44,7 @@ class="grid formgrid">
   </div>
 </form>
 
-<button (click)="addEnrollment()" mat-flatt-button>check_circle</button>
+<button (click)="addEnrollment()" mat-flatt-button><mat-icon>check-circle</mat-icon></button>
 
 <pre>{{ enrollments$ | async | json }}</pre>
 

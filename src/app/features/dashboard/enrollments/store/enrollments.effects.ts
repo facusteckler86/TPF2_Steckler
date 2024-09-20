@@ -21,20 +21,35 @@ export class EnrollmentsEffects {
   })
 
   loadEnrollments$ = createEffect(() => {
+
     return this.actions$.pipe(
+
       //Filtro de acciones en la aplicacion
-      ofType(EnrollmentsActions.createEnrollments),
+
+      ofType(EnrollmentsActions.loadEnrollments),
+
       concatMap((action) =>
+
         // Uso de nuestro Observable
-        this.enrollmentsService.addEnrollment(action.payload).pipe(
-          map((data) => EnrollmentsActions.createEnrollmentsSuccess({ data })),
+
+        this.enrollmentsService.getEnrollments().pipe(
+
+          map((data) => EnrollmentsActions.loadEnrollmentsSuccess({ data })),
+
+
 
           catchError((error) =>
-            of(EnrollmentsActions.createEnrollmentsFailure({ error }))
+
+            of(EnrollmentsActions.loadStudentsAndCoursesFailure({ error }))
+
           )
+
         )
+
       )
+
     );
+
   });
 
 // loadStudentsAndCourses$ = createEffect(()=>{
