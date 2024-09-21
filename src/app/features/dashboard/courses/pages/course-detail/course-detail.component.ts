@@ -13,13 +13,13 @@ export class CourseDetailComponent {
 
   /////////////////////////////////////
 
-  curso$: Observable<Course | undefined>;
+  course$: Observable<Course | undefined>;
 
   constructor(
     private coursesService: CoursesService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.curso$ = this.coursesService.getCourseById(
+    this.course$ = this.coursesService.getCourseById(
       this.activatedRoute.snapshot.params['id']
     );
   }

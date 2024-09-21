@@ -12,6 +12,7 @@ mat-stroked-button>Recargar</button>
 </div>
 }@else {
 <mat-list role="list">
+
   <mat-list-item *ngFor="let students of students$ | async" role="listitem"
     >{{ students.name }}
     <button
@@ -21,18 +22,4 @@ mat-stroked-button>Recargar</button>
 </mat-list>
 
 } }
-
-<!-- <mat-table mat-table[studentsList]="studentsList" class="mat-elevation-z8">
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matColumnDef="">N°</th>
-    <td mat-cell *matCellDef="let element">{{element.position}}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="StudentsId">
-    <th mat-header-cell *matColumnDef="">Id</th>
-    <td mat-cell *matCellDef="">{{students$| async}}</td>
-  </ng-container>
-
-</mat-table> -->
-
 </div>

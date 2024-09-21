@@ -12,7 +12,7 @@ import { adminGuard } from '../../core/guards/guards/admin.guard';
 const routes: Routes = [
   {
     path: 'courses',
-    canActivate: [adminGuard],
+    //canActivate: [adminGuard],
     loadChildren: () =>
       import('./courses/courses.module').then(
         (refArhivo) => refArhivo.CoursesModule
@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then((refArhivo) => refArhivo.HomeModule),
+      import('./home/home.module').then(
+        (refArhivo) => refArhivo.HomeModule),
   },
   {
     path: 'students',

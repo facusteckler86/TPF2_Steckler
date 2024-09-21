@@ -37,13 +37,13 @@ export const reducer = createReducer(
   /* Lo tengo que dejar comentado porque no me toma el id dentro de Students, pero lo tengo
   declardo en el models dentro de courses*/
 
-  // on(StudentsActions.deleteStudentsSuccess, (state, action) => {
-  //   return {
-  //     ...state,
-  //     students: state.students.filter((s) => s.id !== action.data.id),
-  //     error: null,
-  //   };
-  // })
+  //  on(StudentsActions.deleteStudentsSuccess, (state, action) => {
+  //    return {
+  //      ...state,
+  //      students: state.students.filter((s) => s.id !== action.data.id),
+  //      error: null,
+  //    };
+  //  })
 );
 
 export const studentsFeature = createFeature({

@@ -13,7 +13,7 @@
 #Rxjs
 #Test Unitarios
 #Api Rest
-#Aplicacion de Lazy Loading en todos los modulos
+#Aplicación de Lazy Loading en todos los módulos
 
 #Datos para el ingreso como ADMIN:
 
