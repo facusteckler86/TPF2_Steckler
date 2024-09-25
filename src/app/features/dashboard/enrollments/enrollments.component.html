@@ -9,17 +9,15 @@
 
 } @else {
 
-<form
-formGroup="enrollmentForm"
-class="grid formgrid">
+<form formGroup="enrollmentForm" class="grid formgrid">
+  <!-- //parte del form donde se llama al estudiante -->
 
-<!-- //parte del form donde se llama al estudiante -->
-
-<div class="col-6">
+  <div class="col-6">
     <mat-form-field class="w-full">
       <mat-select
         formControlName="studentsId"
-        placeholder="Selecciona un Estudiante">
+        placeholder="Selecciona un Estudiante"
+      >
         @for (students of students$ | async; track $index) {
         <mat-option [value]="students.id">{{ students.name }}</mat-option>
         }
@@ -29,27 +27,21 @@ class="grid formgrid">
   <!-- //parte del form de cursos -->
   <div class="col-6">
     <mat-form-field class="w-full">
-      <mat-select
-        formControlName="coursesId"
-        placeholder="Elegi un Curso">
+      <mat-select formControlName="coursesId" placeholder="Elegi un Curso">
         @for (courses of courses$| async; track $index) {
         <mat-option [value]="courses.id"
           >{{ courses.name }} - {{ courses.id }}</mat-option
         >
         }
       </mat-select>
-
-
     </mat-form-field>
   </div>
 </form>
 
-<button (click)="addEnrollment()" mat-flatt-button><mat-icon>check-circle</mat-icon></button>
+<button (click)="addEnrollment()" mat-flatt-button>
+  <mat-icon>check-circle</mat-icon>
+</button>
 
 <pre>{{ enrollments$ | async | json }}</pre>
 
 } }
-
-
-
-

@@ -7,6 +7,10 @@ const routes: Routes = [
     path: '',
     component: EnrollmentsComponent,
 
+  },
+  {
+    path: "**",
+    redirectTo: '/dashboard/enrollments'
   }
 ];
 
