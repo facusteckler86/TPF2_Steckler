@@ -1,12 +1,11 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../core/service/auth.service';
-//import { APP_CONFIG } from '../../../core/injection-token';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -25,13 +24,17 @@ export class LoginComponent {
     });
   }
 
+  get f() {
+    return this.loginForm.controls;
+  }
+
   onSubmit() {
     if (this.loginForm.invalid) {
       alert('El formulario no es valido');
     } else {
       const data = {
-        email: this.loginForm.get('email')?.value,
-        password: this.loginForm.get('password')?.value,
+        email: this.f['email'].value,
+        password: this.f['password'].value,
       };
       this.authService.login(data);
     }

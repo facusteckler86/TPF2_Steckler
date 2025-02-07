@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrl: './courses.component.css',
+  styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent implements OnInit {
   nombreCurso: '{{nombreCurso}}' | undefined;
@@ -46,7 +46,7 @@ export class CoursesComponent implements OnInit {
   element: any;
 
   constructor(
-    private matDialog: MatDialog,
+    public dialog: MatDialog,
     private coursesService: CoursesService,
     private HttpClient: HttpClient
   ) {}
@@ -80,26 +80,15 @@ export class CoursesComponent implements OnInit {
   }
   //cuando se elige uno de los cursos que estan disponibles
   openDialog(): void {
-    this.matDialog
-      .open(CoursesDialogComponent)
-      .afterClosed()
-      .subscribe({
-        next: (value) => {
-          console.log('Este es el curso que eligio: ', value);
-          this.nombreCurso = value.name;
+    const dialogRef = this.dialog.open(CoursesDialogComponent, {
+      width: '250px',
+      data: { /* datos opcionales */ }
+    });
 
-          value['id'] = generateId(4);
-          this.isLoading = true;
-          this.coursesService.addCourse(value).subscribe({
-            next: (course) => {
-              this.courseList = [...course];
-            },
-            complete: () => {
-              this.isLoading = false;
-            },
-          });
-        },
-      });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El diálogo se cerró');
+      // Lógica adicional después de cerrar el diálogo
+    });
   }
   // parte en la que se edita el listado de cursos
 

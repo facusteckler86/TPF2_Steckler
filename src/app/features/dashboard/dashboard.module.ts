@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../../shared/shared.module';
 import { MatIcon } from '@angular/material/icon';
 import { CoreModule } from '../../core/core.module';
+import { CoursesDialogComponent } from './courses/course-component-dialog/course-dialog.component';
 
 @NgModule({
   declarations: [DashboardComponent],

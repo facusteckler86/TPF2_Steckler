@@ -1,8 +1,10 @@
 <!-- dialogo entre con el usuario para crear cursos y elegir fechas -->
-
+<div class="cuadroDialogo">
 <h2 mat-dialog-title>
   {{ editingCourse ? "Editando " + editingCourse.name : "Crear curso" }}
 </h2>
+
+<button (click)="onSubmit()" mat-flat-button>Guardar</button>
 
 <h3 mat-dialog-title>Crear Curso</h3>
 
@@ -46,9 +48,5 @@
 
 <mat-dialog-actions>
   <button mat-dialog-close mat-flat-button>Cancelar</button>
-  <button (click)="onSubmit()" mat-flat-button>Guardar</button>
 </mat-dialog-actions>
-
-
-
-
+</div>

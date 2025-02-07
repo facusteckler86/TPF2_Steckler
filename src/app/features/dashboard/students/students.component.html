@@ -1,25 +1,24 @@
 <div class="estudiantes">
 
-@if (isLoading$ |async) {
-
-<p>Cargando ....</p>
-
-}@else { @if (error$|async) {<p>Un Error en la carga</p>
-<div class="reload">
-  <button
-(click)="reloadPage()"
-mat-stroked-button>Recargar</button>
-</div>
-}@else {
-<mat-list role="list">
-
-  <mat-list-item *ngFor="let students of students$ | async" role="listitem"
-    >{{ students.name }}
-    <button
-    (click)="deleteStudents(students.name)"
-    mat-icon-button color="warn"><mat-icon>cancel</mat-icon></button>
-  </mat-list-item>
-</mat-list>
-
-} }
+  <div *ngIf="isLoading$ | async; else content">
+    <p>Cargando ....</p>
+  </div>
+  <ng-template #content>
+    <div *ngIf="error$ | async; else listContent">
+      <p>Un Error en la carga</p>
+      <div class="reload">
+        <button (click)="reloadPage()" mat-stroked-button>Recargar</button>
+      </div>
+    </div>
+    <ng-template #listContent>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let student of students$ | async" role="listitem">
+          {{ student.name }}
+          <button (click)="deleteStudents(student.name)" mat-icon-button color="warn">
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </ng-template>
 </div>

@@ -19,21 +19,19 @@
           <mat-label>Email</mat-label>
           <input formControlName="email" matInput />
           <mat-hint>Debe ingresar un mail valido</mat-hint>
-          <mat-icon mat-sufix>mail</mat-icon>
+          <mat-icon matSuffix>mail</mat-icon>
         </mat-form-field>
         <!-- CONTRASEÑA -->
 
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input formControlName="password" matInput />
+          <input formControlName="password" matInput type="password" />
           <mat-hint>Debe ingresar su contraseña</mat-hint>
-          <mat-icon mat-sufix>lock</mat-icon>
+          <mat-icon matSuffix>lock</mat-icon>
         </mat-form-field>
 
         <button
-        routerLink="../dashboard"
-        routerLinkActive="activate"
-        type="submit"
+          type="submit"
           class="w-full mt-5"
           mat-flat-button
         >
